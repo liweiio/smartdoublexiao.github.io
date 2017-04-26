@@ -180,7 +180,8 @@
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <p><a href="https://mdluo.github.io/blog/about-front-end-interview/" target="_blank" rel="external">https://mdluo.github.io/blog/about-front-end-interview/</a></p>
 <p>#js</p>
-<p>##严格模式<br>不能通过脚本访问argument.callee</p>
+<p>##严格模式</p>
+<p>不能通过脚本访问argument.callee</p>
 <p>外部访问不到eval()中创建的任何变量和函数，为eval()赋值会导致错误</p>
 <p>##函数</p>
 <p>##跨域</p>
@@ -198,12 +199,13 @@
 <p>不过还有很多细节，比如触发响应函数时的上下文应该是什么，触发响应函数的参数列表应该是什么，如果要求把调用trigger的参数列表都传到响应函数中还要考虑到吧arguments对象转化为纯数组才行等等。</p>
 <p>还有一些面试官会问到事件如何派发也就是事件广播（dispatchEvent）等等，这里不再展开。</p>
 <p>有关事件的考核点大概也就这么多了</p>
-<p>##JSONP原理!!!<br>HTML5比html4多什么，JasonP和AJAX的区别，ArrayList和Array，String和StringBuffer的区别，Hashtable和HashMap的区别，各个浏览器的内核，网页优化。 面试：聊一下笔试题，再深入问。方法和函数的区别。</p>
+<p>##JSONP原理!!!</p>
+<p>HTML5比html4多什么，JasonP和AJAX的区别，ArrayList和Array，String和StringBuffer的区别，Hashtable和HashMap的区别，各个浏览器的内核，网页优化。 面试：聊一下笔试题，再深入问。方法和函数的区别。</p>
 <p>##将url的查询参数解析成字典对象</p>
-<p>##JS的定义提升<br><a href="http://www.cnblogs.com/xxcanghai/p/5189353.html" target="_blank" rel="external">一道常被人轻视的前端JS面试题</a></p>
+<p>##JS的定义提升</p>
+<p><a href="http://www.cnblogs.com/xxcanghai/p/5189353.html" target="_blank" rel="external">一道常被人轻视的前端JS面试题</a></p>
 <p>函数声明 vs 函数表达式</p>
-<p>##闭包原理及应用</p>
-<ul>
+<h2 id="闭包原理及应用"><a href="#闭包原理及应用" class="headerlink" title="闭包原理及应用"></a>闭包原理及应用</h2><ul>
 <li>什么情况下会发生闭包，为什么需要闭包，什么场景下需要，闭包闭了谁，怎么释放被闭包的变量内存，闭包的优点是什么，缺点是什么等等。<ul>
 <li>答：当一个函数有权访问另一个函数作用域的变量时就发生了闭包，创建闭包常见方式是在一个函数内部创建另一个函数，闭包会将包含函数的活动对象添加到它的作用域链中，当包含函数返回后，其执行环境的作用域链被销毁但是它的活动对象仍保留在内存中，直到闭包被销毁。</li>
 <li>释放闭包的变量内存：1.将对闭包的引用赋值为null，接触引用；2.将element的副本保存在一个变量中消除循环引用，并且将element变量设置为null。</li>
@@ -269,7 +271,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#手写Function-bind函数"><span class="toc-text">手写Function.bind函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写事件模型及事件代理-委托"><span class="toc-text">手写事件模型及事件代理/委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端性能优化"><span class="toc-text">前端性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写数组快速排序-去重"><span class="toc-text">手写数组快速排序/去重</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包原理及应用"><span class="toc-text">闭包原理及应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写Function-bind函数"><span class="toc-text">手写Function.bind函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写事件模型及事件代理-委托"><span class="toc-text">手写事件模型及事件代理/委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端性能优化"><span class="toc-text">前端性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写数组快速排序-去重"><span class="toc-text">手写数组快速排序/去重</span></a></li></ol>
                 </div>
             </div>
         </div>
