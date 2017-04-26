@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="cool blog">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="favicon-w.ico">
+    <link rel="alternate" type="application/atom+xml" title="WuXiaoxiao" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        前端面试题总结｜WuXiaoxiao&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://xxwu.tech/2017/04/24/前端面试题总结/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('../../../../images/bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    WuXiaoxiao
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src="../../../../images/bg11.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('../../../../images/bg11.jpg');
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>前端面试题总结</h1>
+                    
+                    <span class="meta">
+                         作者 WuXiaoxiao
+                        <span>
+                          日期 2017-04-24
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#求职经验"
+                           title="求职经验">求职经验</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            前端面试题总结
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p><a href="https://mdluo.github.io/blog/about-front-end-interview/" target="_blank" rel="external">https://mdluo.github.io/blog/about-front-end-interview/</a></p>
+<p>#js</p>
+<p>##严格模式<br>不能通过脚本访问argument.callee</p>
+<p>外部访问不到eval()中创建的任何变量和函数，为eval()赋值会导致错误</p>
+<p>##函数</p>
+<p>##跨域</p>
+<p>##事件的三个阶段</p>
+<p>分别是捕获，目标，冒泡阶段，低版本IE不支持捕获阶段。然后可能问到IE和W3C不同绑定事件解绑事件的方法有什么区别，参数分别是什么，以及事件对象e有什么区别等等。</p>
+<p>如果上述都没问题，接下来可能会问【事件的代理/委托】的原理以及优缺点，这是靠事件的冒泡机制来实现的，优点是</p>
+<blockquote>
+<p>1、可以大量节省内存占用，减少事件注册，比如在table上代理所有td的click事件就非常棒</p>
+<p>2、可以实现当新增子对象时无需再次对其绑定事件，对于动态内容部分尤为合适</p>
+</blockquote>
+<p>事件代理的应用常用应该仅限于上述需求下，如果把所有事件都用代理就可能会出现事件误判，即本不应用触发事件的被绑上了事件，事实上我见过有人把页面里的所有事件都绑定到document用委托的，这是极其不明智的做法。</p>
+<p>之后对方可能要求你手写原生js【实现事件代理】，并要求兼容浏览器，其实就是考核对事件对象e的了解程度，以及在IE下对应的属性名。其实此时如果你说就是用target，currentTarget，以及IE下的srcElement和this，基本就可以略过了。</p>
+<p>如果上述都ok的话，那么极有可能要求让你【实现事件模型】，即写一个类或是一个模块，有两个函数，一个bind一个trigger，分别实现绑定事件和触发事件，核心需求就是可以对某一个事件名称绑定多个事件响应函数，然后触发这个事件名称时，依次按绑定顺序触发相应的响应函数。</p>
+<p>这个需求如果对于做过C#的人来讲就再熟悉不过，他根本就是C#中的【委托】（delegate）。而委托与事件几乎是一家子。回到前面说的题目，大致实现思路就是创建一个类或是匿名函数，在bind和trigger函数外层作用域创建一个字典对象，用于存储注册的事件及响应函数列表，bind时，如果字典没有则创建一个，key是事件名称，value是数组，里面放着当前注册的响应函数，如果字段中有，那么就直接push到数组即可。trigger时调出来依次触发事件响应函数即可。</p>
+<p>不过还有很多细节，比如触发响应函数时的上下文应该是什么，触发响应函数的参数列表应该是什么，如果要求把调用trigger的参数列表都传到响应函数中还要考虑到吧arguments对象转化为纯数组才行等等。</p>
+<p>还有一些面试官会问到事件如何派发也就是事件广播（dispatchEvent）等等，这里不再展开。</p>
+<p>有关事件的考核点大概也就这么多了</p>
+<p>##JSONP原理!!!<br>HTML5比html4多什么，JasonP和AJAX的区别，ArrayList和Array，String和StringBuffer的区别，Hashtable和HashMap的区别，各个浏览器的内核，网页优化。 面试：聊一下笔试题，再深入问。方法和函数的区别。</p>
+<p>##将url的查询参数解析成字典对象</p>
+<p>##JS的定义提升<br><a href="http://www.cnblogs.com/xxcanghai/p/5189353.html" target="_blank" rel="external">一道常被人轻视的前端JS面试题</a></p>
+<p>函数声明 vs 函数表达式</p>
+<p>##闭包原理及应用</p>
+<ul>
+<li>什么情况下会发生闭包，为什么需要闭包，什么场景下需要，闭包闭了谁，怎么释放被闭包的变量内存，闭包的优点是什么，缺点是什么等等。<ul>
+<li>答：当一个函数有权访问另一个函数作用域的变量时就发生了闭包，创建闭包常见方式是在一个函数内部创建另一个函数，闭包会将包含函数的活动对象添加到它的作用域链中，当包含函数返回后，其执行环境的作用域链被销毁但是它的活动对象仍保留在内存中，直到闭包被销毁。</li>
+<li>释放闭包的变量内存：1.将对闭包的引用赋值为null，接触引用；2.将element的副本保存在一个变量中消除循环引用，并且将element变量设置为null。</li>
+<li>闭包的优点：一个是可以读取函数内部的变量，从而实现如特权方法等应用；另一个就是让这些变量的值始终保持在内存中。</li>
+<li>缺点是：1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</li>
+</ul>
+</li>
+<li><a href="http://www.cnblogs.com/xxcanghai/p/4991870.html" target="_blank" rel="external">大部分人都会做错的经典JS闭包面试题</a></li>
+<li>一、作用域链：函数在定义的时候创建的,用于寻找使用到的变量的值的一个索引,而他内部的规则是,把函数自身的本地变量放在最前面,把自身的父级函数中的变量放在其次,把再高一级函数中的变量放在更后面,以此类推直至全局对象为止.当函数中需要查询一个变量的值的时候,js解释器会去作用域链去查找,从最前面的本地变量中先找,如果没有找到对应的变量,则到下一级的链上找,一旦找到了变量,则不再继续.如果找到最后也没找到需要的变量,则解释器返回undefined。</li>
+<li>二、内存回收机制：一个函数在执行开始的时候,会给其中定义的变量划分内存空间保存,以备后面的语句所用,等到函数执行完毕返回了,这些变量就被认为是无用的了.对应的内存空间也就被回收了.下次再执行此函数的时候,所有的变量又回到最初的状态,重新赋值使用.但是如果这个函数内部又嵌套了另一个函数,而这个函数是有可能在外部被调用到的.并且这个内部函数又使用了外部函数的某些变量的话.这种内存回收机制就会出现问题.如果在外部函数返回后,又直接调用了内部函数,那么内部函数就无法读取到他所需要的外部函数中变量的值了.所以js解释器在遇到函数定义的时候,会自动把函数和他可能使用的变量(包括本地变量和父级和祖先级函数的变量(自由变量))一起保存起来.也就是构建一个闭包,这些变量将不会被内存回收器所回收,只有当内部的函数不可能被调用以后(例如被删除了,或者没有了指针),才会销毁这个闭包,而没有任何一个闭包引用的变量才会被下一次内存回收启动时所回收。<strong><em>只要存在调用内部函数的可能，JavaScript就需要保留被引用的函数。而且JavaScript运行时需要跟踪引用这个内部函数的所有变量，直到最后一个变量废弃，JavaScript的垃圾收集器才能释放相应的内存空间</em></strong>。</li>
+<li>三、局部变量&amp;全局变量<ul>
+<li>1、全局（global）变量的作用域是全局的，在Javascript中处处有定义；而函数内部声明的变量是局部（local）变量，其作用域是局部性的，只在函数体内部有定义,每次执行该函数时都会创建和破坏该变量。</li>
+<li>2、全局变量作用域中使用变量可以不用var语句，但在声明局部变量是一定要使用var语句，否则会视为对全局变量的引用。</li>
+<li>ECMAScript变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是那些保存在栈内存中的简单数据段，即这种值完全 保存在内存中的一个位置。而引用类型值是指那些保存堆内存中的对象，意思是变量中保存的实际上只是一个指针，这个指针指向内存中的另一个位置，该位置保存对象。<ul>
+<li>5种基本数据类型：Undefined、Null、Boolean、 Number和String。这5种基本数据类型的值在内存中分别占有固定大小的空间，因此可以把它们的值保存在栈内存。</li>
+<li>如果赋给变量的是一个引用类型的值，则必须在堆内存中为这个值分配空间。由于这种值的大小不固定，因此不能把它们保存到栈内存中。但内存地址的大小 是固定的，因此可以将内存地址保存在栈内存中。这样，当查询引用类型的变量时，就可以首先从栈中读取内存地址，然后再“顺藤摸瓜”地找到保存在堆中的值。</li>
+<li>保存在栈内存中的每个值，分别占据着固定大小的空间，可以按照顺序来访问它们。如果栈内存中保存的是一块内存的地址，则这个值就像是一个指向对象在堆内存中位置的指针。保存在堆内存中的数据不是按顺序访问的，因为每个对象所需要的空间并不相等。</li>
+<li>当从一个变量向另一个变量复制引用类型的值时，同样也会将储存在栈中的值复制一份放到为新变量分配的空间中。不同的是，<strong>这个值的副本实际上是一个指针，而这个指针指向存储在堆中的一个对象。复制操作结束后，两个变量实际上将引用同一个对象。</strong>因此，改变其中一个变量，就会影响到另一个变量。</li>
+<li>typeof操作符是确定一个变量是字符串、数值、布尔 值，还是undefined基本数据类型的最佳工具。检测引用类型的值时，ECMAScript提供了<strong>instanceof操作符。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="手写Function-bind函数"><a href="#手写Function-bind函数" class="headerlink" title="手写Function.bind函数"></a>手写Function.bind函数</h2><h2 id="手写事件模型及事件代理-委托"><a href="#手写事件模型及事件代理-委托" class="headerlink" title="手写事件模型及事件代理/委托"></a>手写事件模型及事件代理/委托</h2><p>#CSS</p>
+<p>##css垂直居中方法</p>
+<p>##自适应布局</p>
+<p>##移动端自适应</p>
+<p>#HTML</p>
+<h2 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h2><h2 id="手写数组快速排序-去重"><a href="#手写数组快速排序-去重" class="headerlink" title="手写数组快速排序/去重"></a>手写数组快速排序/去重</h2><p>##设计模式</p>
+<p>开始学习前端差不多是今年4月份，那会大家也都开始了实习的面试准备，心急如焚，不知道自己定位。考虑在实验室的确是整个人都不行不行的。考虑自己是女生，结合性格特征，并且优质实习，尽在猎聘校园！要尽快入门。最终在运营，测试，前端，产品中选择了前端。之后也一直断断续续在面试学习。下面我来分享一下自己半年来的面试过程。<br>4月中旬，百度面试<br>1.垂直居中的方法（简直是必问题，重复率极高）<br>2.盒子模型描述<br>3.Box-sizing适用场景，原理<br>4.Hack技术<br>5.透明色设置<br>6.画了一个图，让写框架结构。<br>7.写布局，左定宽右自适应</p>
+<p>7月初，阿里面试<br>面试官的问题（主要是1面的问题，2，3，4面基本上问项目，有点抽象）<br>1.position（必问）<br>2.异步加载的方法<br>3.你对语义化的理解和好处，自己在前端开发中对于css有没有一些自己的经验<br>4.数组排序。冒泡，插入排序原理<br>5.值类型和引用类型的区别。模块化？CMD，AMD，requireJS<br>6.闭包的理解，跨域的方法<br>7.JavaScript开发模式，知道几种，举个栗子。主要问了单例模式，观察者模式<br>8.Apply和call的相同与不同<br>9.JavaScript事件代理<br>10.你对前端的理解？你为啥要做前端？如何管理一个项目？</p>
+<p>8月中，网易面试<br>1.DOM节点操作（增删改查）<br>2.Web前端优化方法（参考14条军规即可）<br>3.HTML5的离线储存，sessierror 和localstorage区别<br>4.给了一份大作业，给了前后端接口数据，返回数据格式。</p>
+<p>8月中，今日头条面试。一面：笔试，大约半小时左右<br>1.优化css代码，Jquery一些函数的作用，Param()，Extend()，Deferred()，Serializearray()之类的<br>2.写一个选项联动的，全选/全不选<br>3.算法：字符串中第一个不重复的字母<br>4.打开头条首页，开始写吧。<br>5.数组，字符串的常用方法<br>6.Iframe自适应高度<br>7.JSONP的原理<br>8.Git和SVN的区别</p>
+<p>8月中，链家网面试<br>1.input的属性，提交表单的除了input，还有啥。<br>2.项目之类的吧，问的比较少</p>
+<p>8月末，蘑菇街面试</p>
+<ol>
+<li>浏览器是如何完成网页渲染？</li>
+<li>域名，一二级优缺点</li>
+<li>问之前实习做的项目</li>
+</ol>
+<p>9月中，搜狐面试，因为是后端来面的，一直优质实习，尽在猎聘校园！在问算法<br>1.一张白纸，来，写一下冒泡<br>2.页面渲染过程<br>3.[2,3,5,6,7,8,9]，返回加起来和为10的数字<br>一点感悟：<br>1.尽量在内推的时候搞定offer，渣硕表示，校招开始后，笔试基本上全挂。<br>2.论互联网实习的重要性。<br>3.选择一份你自己喜欢的岗位。</p>
+<p>最后补充一个guoqu211同学的美团前端面经：<br>首先，美团的面试很累，如果顺利的话要连续走完至少三面，每一面平均一个多小时，全部面完至少4个小时。<br>一面：考察对js的基础知识掌握程序。主要有js的面向对象，对象继承的集中方式比较，原型和原型链，闭包，数组函数的基本用法，map,filter什么的，还有http协议相关，比如get/post的区别，跨域，原生ajax。之后会问一些简单的Dom操作，jquery某些函数的实现机制，不用看源码，可以自己尝试写原生代码实现就行。中间会穿插着问1-2个简单的算法，可以用js的内置函数解决，也可以写完整的实现过程，比如数组排序，可以用sort也可以自己写。没有问到css，问的这些东西刷一遍js高级程序设计就行了。<br>二面：二面上来也会下问一两个小算法，和数组排序差不多难度的。基本上不会再问基础知识，直接聊项目。常见模式：项目中遇到什么问题，怎么去解决的。github上关注了什么开源项目。如果有做过项目的最好准备几个稍微麻烦一点的问题，然后说一下解决的过程，stackoverflow是个好东西，遇到问题去看看你会发现世界还是很美好的。如果用到框架的话，准备一下框架的特性，举个说明框架特性的栗子。这里感觉也会考察知识面,说明less、sass,gulp,watchify,bower,npm之类的最好都知道一点，没事练练，或许能加分不少。<br>三面：算是主管面了，开始聊人生。性格，爱好，平时优质实习，尽在猎聘校园！看什么书，关注什么博客，学习路线之类的，照实说就对了。最后问了一个稍微复杂的算法，思路很简单，就是写的时候有小细节要注意。别的就没什么了。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/03/09/rem是什么/" data-toggle="tooltip" data-placement="top"
+                           title="rem是什么">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#手写Function-bind函数"><span class="toc-text">手写Function.bind函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写事件模型及事件代理-委托"><span class="toc-text">手写事件模型及事件代理/委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端性能优化"><span class="toc-text">前端性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写数组快速排序-去重"><span class="toc-text">手写数组快速排序/去重</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#求职经验"
+                           title="求职经验">求职经验</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/wuxiaoxiaojs">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/wuxiaoxiao2011to2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/anjingermeihao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/smartdoublexiao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; WuXiaoxiao 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">您是第: <span id="busuanzi_value_site_pv"></span> 位访客</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://xxwu.tech/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-96579584-1';
+    var _gaDomain = 'xxwu.tech';
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = 'cd5b49144f27a7087ee7c5bf11886819';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="../../../../images/avatar.jpg">
+</body>
+
+</html>
