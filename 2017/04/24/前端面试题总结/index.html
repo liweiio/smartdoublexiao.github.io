@@ -179,20 +179,38 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <p><a href="https://mdluo.github.io/blog/about-front-end-interview/" target="_blank" rel="external">https://mdluo.github.io/blog/about-front-end-interview/</a></p>
-<p>#js</p>
-<p>##严格模式</p>
-<p>不能通过脚本访问argument.callee</p>
+<p>【js】</p>
+<h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><p>不能通过脚本访问argument.callee</p>
 <p>外部访问不到eval()中创建的任何变量和函数，为eval()赋值会导致错误</p>
+<h2 id="标准模式-vs-混杂模式"><a href="#标准模式-vs-混杂模式" class="headerlink" title="标准模式 vs 混杂模式"></a>标准模式 vs 混杂模式</h2><p>便准模式：document.compatMode == “CSS1Compat”</p>
+<p>document.documentElement.clientWidth/clientHeight ：其他浏览器，标准模式下的IE6，移动的IE  </p>
+<p>document.body.clientWidth：混杂下的IE6，混杂下的chrome两种都可以</p>
+<p>window.innerWidth：移动设备</p>
+<p>scroll事件在混杂模式下通过\<body\>元素的scrollLeft和scrollTop来监控（document.body.scrollTop），在标准模式下，除Safari之外的浏览器都通过\<html\>元素来反应（document.documentElement.scrollTop）。</html\></body\></p>
 <p>##函数</p>
 <p>##跨域</p>
-<p>##事件的三个阶段</p>
-<p>分别是捕获，目标，冒泡阶段，低版本IE不支持捕获阶段。然后可能问到IE和W3C不同绑定事件解绑事件的方法有什么区别，参数分别是什么，以及事件对象e有什么区别等等。</p>
-<p>如果上述都没问题，接下来可能会问【事件的代理/委托】的原理以及优缺点，这是靠事件的冒泡机制来实现的，优点是</p>
+<p>##事件</p>
+<p>事件的三个阶段分别是捕获，目标，冒泡阶段，低版本IE不支持捕获阶段。然后可能问到IE和W3C不同绑定事件解绑事件的方法有什么区别，参数分别是什么，以及事件对象e有什么区别等等。</p>
 <blockquote>
+<p>IE中可以用DOM0级和IE中的方法，W3C中可以用DOM0,DOM2级；</p>
+<p>绑定事件解绑事件的区别：</p>
+<p>1.DOM0级中btn.onclick=function(){}在冒泡阶段被处理；DOM2级中addEventListener()的三个参数是事件对象，事件处理函数，和boolean值，true则在捕获阶段调用，false则在冒泡阶段调用；IE中attachEvent()的两个参数是事件名称，事件处理函数。在冒泡阶段调用。</p>
+<p>2.DOM2中多个事件处理程序是顺序执行，IE中是逆向执行；</p>
+<p>3.作用域：IE中事件处理程序在全局作用域运行，DOM0级方法事件处理程序在其所属元素的作用域运行</p>
+<p>事件对象event的区别：</p>
+<p>1.IE中DOM0级方法添加时，event对象是window对象的一个属性，而其他情况event对象都是事件处理函数的参数。</p>
+<p>2.IE中阻止事件的默认行为将returnValue设为false；W3C中使用preventDefault()方法（如果cancelable=true）;</p>
+<p>3.IE中阻止事件冒泡将cancelBubble设为true；W3C中使用stopPropagation()方法</p>
+<p>4.IE中event.srcElement对应W3C中的event.Target，在load事件中，兼容DOM的浏览器会把event.target设为document，而IE则不改变srcElement</p>
+</blockquote>
+<p>如果上述都没问题，接下来可能会问【事件的代理/委托】的原理以及优缺点，这是靠事件的冒泡机制来实现的</p>
+<blockquote>
+<p>优点是:</p>
 <p>1、可以大量节省内存占用，减少事件注册，比如在table上代理所有td的click事件就非常棒</p>
 <p>2、可以实现当新增子对象时无需再次对其绑定事件，对于动态内容部分尤为合适</p>
-</blockquote>
+<p>缺点是：</p>
 <p>事件代理的应用常用应该仅限于上述需求下，如果把所有事件都用代理就可能会出现事件误判，即本不应用触发事件的被绑上了事件，事实上我见过有人把页面里的所有事件都绑定到document用委托的，这是极其不明智的做法。</p>
+</blockquote>
 <p>之后对方可能要求你手写原生js【实现事件代理】，并要求兼容浏览器，其实就是考核对事件对象e的了解程度，以及在IE下对应的属性名。其实此时如果你说就是用target，currentTarget，以及IE下的srcElement和this，基本就可以略过了。</p>
 <p>如果上述都ok的话，那么极有可能要求让你【实现事件模型】，即写一个类或是一个模块，有两个函数，一个bind一个trigger，分别实现绑定事件和触发事件，核心需求就是可以对某一个事件名称绑定多个事件响应函数，然后触发这个事件名称时，依次按绑定顺序触发相应的响应函数。</p>
 <p>这个需求如果对于做过C#的人来讲就再熟悉不过，他根本就是C#中的【委托】（delegate）。而委托与事件几乎是一家子。回到前面说的题目，大致实现思路就是创建一个类或是匿名函数，在bind和trigger函数外层作用域创建一个字典对象，用于存储注册的事件及响应函数列表，bind时，如果字典没有则创建一个，key是事件名称，value是数组，里面放着当前注册的响应函数，如果字段中有，那么就直接push到数组即可。trigger时调出来依次触发事件响应函数即可。</p>
@@ -236,7 +254,7 @@
 <p>##移动端自适应</p>
 <p>#HTML</p>
 <h2 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h2><h2 id="手写数组快速排序-去重"><a href="#手写数组快速排序-去重" class="headerlink" title="手写数组快速排序/去重"></a>手写数组快速排序/去重</h2><p>##设计模式</p>
-<p>开始学习前端差不多是今年4月份，那会大家也都开始了实习的面试准备，心急如焚，不知道自己定位。考虑在实验室的确是整个人都不行不行的。考虑自己是女生，结合性格特征，并且优质实习，尽在猎聘校园！要尽快入门。最终在运营，测试，前端，产品中选择了前端。之后也一直断断续续在面试学习。下面我来分享一下自己半年来的面试过程。<br>4月中旬，百度面试<br>1.垂直居中的方法（简直是必问题，重复率极高）<br>2.盒子模型描述<br>3.Box-sizing适用场景，原理<br>4.Hack技术<br>5.透明色设置<br>6.画了一个图，让写框架结构。<br>7.写布局，左定宽右自适应</p>
+<h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><p>开始学习前端差不多是今年4月份，那会大家也都开始了实习的面试准备，心急如焚，不知道自己定位。考虑在实验室的确是整个人都不行不行的。考虑自己是女生，结合性格特征，并且优质实习，尽在猎聘校园！要尽快入门。最终在运营，测试，前端，产品中选择了前端。之后也一直断断续续在面试学习。下面我来分享一下自己半年来的面试过程。<br>4月中旬，百度面试<br>1.垂直居中的方法（简直是必问题，重复率极高）<br>2.盒子模型描述<br>3.Box-sizing适用场景，原理<br>4.Hack技术<br>5.透明色设置<br>6.画了一个图，让写框架结构。<br>7.写布局，左定宽右自适应</p>
 <p>7月初，阿里面试<br>面试官的问题（主要是1面的问题，2，3，4面基本上问项目，有点抽象）<br>1.position（必问）<br>2.异步加载的方法<br>3.你对语义化的理解和好处，自己在前端开发中对于css有没有一些自己的经验<br>4.数组排序。冒泡，插入排序原理<br>5.值类型和引用类型的区别。模块化？CMD，AMD，requireJS<br>6.闭包的理解，跨域的方法<br>7.JavaScript开发模式，知道几种，举个栗子。主要问了单例模式，观察者模式<br>8.Apply和call的相同与不同<br>9.JavaScript事件代理<br>10.你对前端的理解？你为啥要做前端？如何管理一个项目？</p>
 <p>8月中，网易面试<br>1.DOM节点操作（增删改查）<br>2.Web前端优化方法（参考14条军规即可）<br>3.HTML5的离线储存，sessierror 和localstorage区别<br>4.给了一份大作业，给了前后端接口数据，返回数据格式。</p>
 <p>8月中，今日头条面试。一面：笔试，大约半小时左右<br>1.优化css代码，Jquery一些函数的作用，Param()，Extend()，Deferred()，Serializearray()之类的<br>2.写一个选项联动的，全选/全不选<br>3.算法：字符串中第一个不重复的字母<br>4.打开头条首页，开始写吧。<br>5.数组，字符串的常用方法<br>6.Iframe自适应高度<br>7.JSONP的原理<br>8.Git和SVN的区别</p>
@@ -271,7 +289,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包原理及应用"><span class="toc-text">闭包原理及应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写Function-bind函数"><span class="toc-text">手写Function.bind函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写事件模型及事件代理-委托"><span class="toc-text">手写事件模型及事件代理/委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端性能优化"><span class="toc-text">前端性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写数组快速排序-去重"><span class="toc-text">手写数组快速排序/去重</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#严格模式"><span class="toc-text">严格模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标准模式-vs-混杂模式"><span class="toc-text">标准模式 vs 混杂模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包原理及应用"><span class="toc-text">闭包原理及应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写Function-bind函数"><span class="toc-text">手写Function.bind函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写事件模型及事件代理-委托"><span class="toc-text">手写事件模型及事件代理/委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端性能优化"><span class="toc-text">前端性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写数组快速排序-去重"><span class="toc-text">手写数组快速排序/去重</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器"><span class="toc-text">浏览器</span></a>
                 </div>
             </div>
         </div>
