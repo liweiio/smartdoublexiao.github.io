@@ -200,6 +200,31 @@
 <li><strong>js解析如下</strong>：浏览器创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时<strong>document.readystate为loading</strong>HTML解析器遇到<strong>没有async和defer的script时</strong>，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。<strong>同步脚本经常简单定义函数和注册事件处理程序，他们可以遍历和操作script和他们之前的文档内容</strong>当解析器遇到设置了<strong>async</strong>属性的script时，开始下载脚本并继续解析文档。脚本会在它<strong>下载完成后尽快执行</strong>，但是<strong>解析器不会停下来等它下载</strong>。异步脚本<strong>禁止使用document.write()</strong>，它们可以访问自己script和之前的文档元素当文档完成解析，document.readState变成interactive所有<strong>defer</strong>脚本会<strong>按照在文档出现的顺序执行</strong>，延迟脚本<strong>能访问完整文档树</strong>，禁止使用document.write()浏览器<strong>在Document对象上触发DOMContentLoaded事件</strong>此时文档完全解析完成，浏览器可能还在等待如图片等内容加载，等这些<strong>内容完成载入并且所有异步脚本完成载入和执行</strong>，document.readState变为complete,window触发load事件</li>
 <li><strong>显示页面</strong>（HTML解析过程中会逐步显示页面）</li>
 </ol>
+<h2 id="GET和POST的区别，何时使用POST？"><a href="#GET和POST的区别，何时使用POST？" class="headerlink" title="GET和POST的区别，何时使用POST？"></a>GET和POST的区别，何时使用POST？</h2><p>GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符  </p>
+<p>POST：一般用于修改服务器上的资源，对所发送的信息没有限制。  </p>
+<p>GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值，也就是说Get是通过地址栏来传值，而Post是通过提交表单来传值。</p>
+<p>在以下情况中使用 POST 请求：无法使用缓存文件（更新服务器上的文件或数据库）；向服务器发送大量数据（POST 没有数据量限制）；发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠  </p>
+<h2 id="XMLHttpRequest通用属性和方法"><a href="#XMLHttpRequest通用属性和方法" class="headerlink" title="XMLHttpRequest通用属性和方法"></a>XMLHttpRequest通用属性和方法</h2><ol>
+<li><code>readyState</code>:表示请求状态的整数，取值：<ul>
+<li>UNSENT（0）：对象已创建</li>
+<li>OPENED（1）：open()成功调用，在这个状态下，可以为xhr设置请求头，或者使用send()发送请求</li>
+<li>HEADERS_RECEIVED(2)：所有重定向已经自动完成访问，并且最终响应的HTTP头已经收到</li>
+<li>LOADING(3)：响应体正在接收</li>
+<li>DONE(4)：数据传输完成或者传输产生错误</li>
+</ul>
+</li>
+<li><code>onreadystatechange</code>：readyState改变时调用的函数</li>
+<li><code>status</code>：服务器返回的HTTP状态码（如，200， 404）</li>
+<li><code>statusText</code>:服务器返回的HTTP状态信息（如，OK，No Content）</li>
+<li><code>responseText</code>:作为字符串形式的来自服务器的完整响应</li>
+<li><code>responseXML</code>: Document对象，表示服务器的响应解析成的XML文档</li>
+<li><code>abort()</code>:取消异步HTTP请求</li>
+<li><code>getAllResponseHeaders()</code>: 返回一个字符串，包含响应中服务器发送的全部HTTP报头。每个报头都是一个用冒号分隔开的名/值对，并且使用一个回车/换行来分隔报头行</li>
+<li><code>getResponseHeader(headerName)</code>:返回headName对应的报头值</li>
+<li><code>open(method, url, asynchronous [, user, password])</code>:初始化准备发送到服务器上的请求。method是HTTP方法，不区分大小写；url是请求发送的相对或绝对URL；asynchronous表示请求是否异步；user和password提供身份验证</li>
+<li><code>setRequestHeader(name, value)</code>:设置HTTP报头</li>
+<li><code>send(body)</code>:对服务器请求进行初始化。参数body包含请求的主体部分，对于POST请求为键值对字符串；对于GET请求，为null</li>
+</ol>
 
                 <hr>
                 
@@ -227,7 +252,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#从浏览器地址栏输入url到显示页面的步骤-以HTTP为例"><span class="toc-text">从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#从浏览器地址栏输入url到显示页面的步骤-以HTTP为例"><span class="toc-text">从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET和POST的区别，何时使用POST？"><span class="toc-text">GET和POST的区别，何时使用POST？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XMLHttpRequest通用属性和方法"><span class="toc-text">XMLHttpRequest通用属性和方法</span></a></li></ol>
                 </div>
             </div>
         </div>

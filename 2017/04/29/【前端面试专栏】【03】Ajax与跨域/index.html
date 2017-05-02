@@ -185,8 +185,7 @@
 <p>（2）对搜索引擎的支持比较弱。  </p>
 <p>（3）不容易调试。  </p>
 <h2 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题?"></a>如何解决跨域问题?</h2><p>jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页面。  </p>
-<p><strong>5.GET和POST的区别，何时使用POST？</strong>  </p>
-<p>GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符  </p>
+<h2 id="GET和POST的区别，何时使用POST？"><a href="#GET和POST的区别，何时使用POST？" class="headerlink" title="GET和POST的区别，何时使用POST？"></a>GET和POST的区别，何时使用POST？</h2><p>GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符  </p>
 <p>POST：一般用于修改服务器上的资源，对所发送的信息没有限制。</p>
 <p>GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值，  </p>
 <p>也就是说Get是通过地址栏来传值，而Post是通过提交表单来传值。  </p>
@@ -194,12 +193,6 @@
 <p>无法使用缓存文件（更新服务器上的文件或数据库）  </p>
 <p>向服务器发送大量数据（POST 没有数据量限制）  </p>
 <p>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠  </p>
-<p><strong>6.请解释一下 JavaScript 的同源策略</strong>  </p>
-<p>概念:同源策略是客户端脚本（尤其是Javascript）的重要的安全度量标准。它最早出自Netscape Navigator2.0，其目的是防止某个文档或脚本从多个不同源装载。</p>
-<p>这里的同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。  </p>
-<p>指一段脚本只能读取来自同一来源的窗口和文档的属性。  </p>
-<p>为什么要有同源限制？  </p>
-<p>我们举例说明：比如一个黑客程序，他利用Iframe把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过Javascript读取到你的表单中input中的内容，这样用户名，密码就轻松到手了。  </p>
 <h2 id="Flash、Ajax各自的优缺点，在使用中如何取舍？"><a href="#Flash、Ajax各自的优缺点，在使用中如何取舍？" class="headerlink" title="Flash、Ajax各自的优缺点，在使用中如何取舍？"></a>Flash、Ajax各自的优缺点，在使用中如何取舍？</h2><p>Flash适合处理多媒体、矢量图形、访问机器；对CSS、处理文本上不足，不容易被搜索。  </p>
 <p>Ajax对CSS、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。  </p>
 <p>共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM  </p>
@@ -219,25 +212,9 @@
 <p>原理是：动态插入<code>script</code>标签，通过<code>script</code>标签引入一个<code>js</code>文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的<code>json</code>数据作为参数传入。</p>
 <p>由于同源策略的限制，<code>XmlHttpRequest</code>只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过<code>script</code>标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。</p>
 <p>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。</p>
-<p><code>JSONP</code>：<code>json+padding</code>（内填充），顾名思义，就是把JSON填充到一个盒子里<br>​    </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;script&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function createJs(sUrl)&#123;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var oScript = document.createElement(&apos;script&apos;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">oScript.type = &apos;text/javascript&apos;;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">oScript.src = sUrl;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">document.getElementsByTagName(&apos;head&apos;)[0].appendChild(oScript);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">createJs(&apos;jsonp.js&apos;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">box(&#123;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&apos;name&apos;: &apos;test&apos;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function box(json)&#123;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">alert(json.name);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
+<p><code>JSONP</code>：<code>json+padding</code>（内填充），顾名思义，就是把JSON填充到一个盒子里</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line"> function createJs(sUrl)&#123;</div><div class="line"></div><div class="line"> var oScript = document.createElement(&apos;script&apos;);</div><div class="line"></div><div class="line"> oScript.type = &apos;text/javascript&apos;;</div><div class="line"></div><div class="line"> oScript.src = sUrl;</div><div class="line"></div><div class="line"> document.getElementsByTagName(&apos;head&apos;)[0].appendChild(oScript);</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> createJs(&apos;jsonp.js&apos;);</div><div class="line"></div><div class="line"> box(&#123;</div><div class="line"></div><div class="line"> &apos;name&apos;: &apos;test&apos;</div><div class="line"></div><div class="line"> &#125;);</div><div class="line"></div><div class="line"> function box(json)&#123;</div><div class="line"></div><div class="line"> alert(json.name);</div><div class="line"></div><div class="line"> &#125;</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>CORS</p>
-</blockquote>
 <p>服务器端对于<code>CORS</code>的支持，主要就是通过设置<code>Access-Control-Allow-Origin</code>来进行的。如果浏览器检测到相应的设置，就可以允许<code>Ajax</code>进行跨域的访问。</p>
 <blockquote>
 <p>通过修改document.domain来跨子域</p>
@@ -252,41 +229,23 @@
 <p>使用HTML5中新引进的<code>window.postMessage</code>方法来跨域传送数据</p>
 </blockquote>
 <p>还有flash、在服务器上设置代理页面等跨域方式。个人认为<code>window.name</code>的方法既不复杂，也能兼容到几乎所有浏览器，这真是极好的一种跨域方法。</p>
-<h2 id="XML和JSON的区别？"><a href="#XML和JSON的区别？" class="headerlink" title="XML和JSON的区别？"></a><code>XML</code>和<code>JSON</code>的区别？</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(1).数据体积方面。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">JSON相对于XML来讲，数据的体积小，传递的速度更快些。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(2).数据交互方面。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(3).数据描述方面。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">JSON对数据的描述性比XML较差。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(4).传输速度方面。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">JSON的速度要远远快于XML。</div></pre></td></tr></table></figure>
-<h2 id="创建ajax过程"><a href="#创建ajax过程" class="headerlink" title="创建ajax过程"></a>创建ajax过程</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(3)设置响应HTTP请求状态变化的函数.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(4)发送HTTP请求.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(5)获取异步调用返回的数据.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(6)使用JavaScript和DOM实现局部刷新.</div></pre></td></tr></table></figure>
-<h4 id="创建ajax的过程"><a href="#创建ajax的过程" class="headerlink" title="创建ajax的过程"></a>创建ajax的过程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(1)创建`XMLHttpRequest`对象,也就是创建一个异步调用对象.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(2)创建一个新的`HTTP`请求,并指定该`HTTP`请求的方法、`URL`及验证信息.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(3)设置响应`HTTP`请求状态变化的函数.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(4)发送`HTTP`请求.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(5)获取异步调用返回的数据.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">(6)使用JavaScript和DOM实现局部刷新.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var xmlHttp = new XMLHttpRequest();</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">xmlHttp.open(&apos;GET&apos;,&apos;demo.php&apos;,&apos;true&apos;);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">xmlHttp.send()</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">xmlHttp.onreadystatechange = function()&#123;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">if(xmlHttp.readyState === 4 &amp; xmlHttp.status === 200)&#123;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="XML和JSON的区别？"><a href="#XML和JSON的区别？" class="headerlink" title="XML和JSON的区别？"></a><code>XML</code>和<code>JSON</code>的区别？</h2><p>(1).数据体积方面。<br>JSON相对于XML来讲，数据的体积小，传递的速度更快些。</p>
+<p>(2).数据交互方面。<br>JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。</p>
+<p>(3).数据描述方面。<br>JSON对数据的描述性比XML较差。</p>
+<p>(4).传输速度方面。<br>JSON的速度要远远快于XML。</p>
+<h2 id="创建ajax过程"><a href="#创建ajax过程" class="headerlink" title="创建ajax过程"></a>创建ajax过程</h2><p>(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.<br>(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.<br>(3)设置响应HTTP请求状态变化的函数.<br>(4)发送HTTP请求.<br>(5)获取异步调用返回的数据.<br>(6)使用JavaScript和DOM实现局部刷新.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var xmlHttp = new XMLHttpRequest();</div><div class="line">xmlHttp.open(&apos;GET&apos;,&apos;demo.php&apos;,&apos;true&apos;);</div><div class="line">xmlHttp.send()</div><div class="line">xmlHttp.onreadystatechange = function()&#123;</div><div class="line"> if(xmlHttp.readyState === 4 &amp; xmlHttp.status === 200)&#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>详情：<a href="http://segmentfault.com/blog/trigkit4/1190000000691919" target="_blank" rel="external">JavaScript学习总结（七）Ajax和Http状态字</a></p>
-<h2 id="异步加载和延迟加载"><a href="#异步加载和延迟加载" class="headerlink" title="异步加载和延迟加载"></a>异步加载和延迟加载</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">1.异步加载的方案： 动态插入script标签 2.通过ajax去获取js代码，然后通过eval执行 3.script标签上添加defer或者async属性 4.创建并插入iframe，让它异步执行js 5.延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。</div></pre></td></tr></table></figure>
-<h2 id="javascript跨域通信"><a href="#javascript跨域通信" class="headerlink" title="javascript跨域通信"></a>javascript跨域通信</h2><p>同源：两个文档同源需满足</p>
-<ol>
-<li>协议相同</li>
-<li>域名相同</li>
-<li>端口相同</li>
-</ol>
+<h2 id="异步加载和延迟加载"><a href="#异步加载和延迟加载" class="headerlink" title="异步加载和延迟加载"></a>异步加载和延迟加载</h2><p>1.异步加载的方案： 动态插入script标签 </p>
+<p>2.通过ajax去获取js代码，然后通过eval执行 </p>
+<p>3.script标签上添加defer或者async属性 </p>
+<p>4.创建并插入iframe，让它异步执行js </p>
+<p>5.延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。 </p>
+<h2 id="为什么要有同源限制？"><a href="#为什么要有同源限制？" class="headerlink" title="为什么要有同源限制？"></a>为什么要有同源限制？</h2><p>我们举例说明：比如一个黑客程序，他利用<code>Iframe</code>把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过<code>Javascript</code>读取到你的表单中<code>input</code>中的内容，这样用户名，密码就轻松到手了。</p>
+<p>缺点：</p>
+<p>现在网站的<code>JS</code> 都会进行压缩，一些文件用了严格模式，而另一些没有。这时这些本来是严格模式的文件，被 <code>merge</code> 后，这个串就到了文件的中间，不仅没有指示严格模式，反而在压缩后浪费了字节。</p>
+<h2 id="javascript跨域通信"><a href="#javascript跨域通信" class="headerlink" title="javascript跨域通信"></a>javascript跨域通信</h2><p>概念:同源策略是客户端脚本（尤其是<code>Javascript</code>）的重要的安全度量标准。它最早出自<code>Netscape Navigator2.0</code>，其目的是防止某个文档或脚本从多个不同源装载。</p>
+<p>这里的同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。指一段脚本只能读取来自同一来源的窗口和文档的属性。</p>
 <p>跨域通信：js进行DOM操作、通信时如果目标与当前窗口不满足同源条件，浏览器为了安全会阻止跨域操作。跨域通信通常有以下方法</p>
 <ul>
 <li>如果是log之类的简单<strong>单项通信</strong>，新建<code>&lt;img&gt;</code>,<code>&lt;script&gt;</code>,<code>&lt;link&gt;</code>,<code>&lt;iframe&gt;</code>元素，通过src，href属性设置为目标url。实现跨域请求</li>
@@ -318,12 +277,6 @@
 <ul>
 <li>共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM</li>
 </ul>
-<h2 id="请解释一下-JavaScript-的同源策略。"><a href="#请解释一下-JavaScript-的同源策略。" class="headerlink" title="请解释一下 JavaScript 的同源策略。"></a>请解释一下 JavaScript 的同源策略。</h2><p>概念:同源策略是客户端脚本（尤其是<code>Javascript</code>）的重要的安全度量标准。它最早出自<code>Netscape Navigator2.0</code>，其目的是防止某个文档或脚本从多个不同源装载。</p>
-<p>这里的同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。</p>
-<p>指一段脚本只能读取来自同一来源的窗口和文档的属性。</p>
-<h2 id="为什么要有同源限制？"><a href="#为什么要有同源限制？" class="headerlink" title="为什么要有同源限制？"></a>为什么要有同源限制？</h2><p>我们举例说明：比如一个黑客程序，他利用<code>Iframe</code>把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过<code>Javascript</code>读取到你的表单中<code>input</code>中的内容，这样用户名，密码就轻松到手了。</p>
-<p>缺点：</p>
-<p>现在网站的<code>JS</code> 都会进行压缩，一些文件用了严格模式，而另一些没有。这时这些本来是严格模式的文件，被 <code>merge</code> 后，这个串就到了文件的中间，不仅没有指示严格模式，反而在压缩后浪费了字节。</p>
 <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>可以表示那些数据类型？</p>
 <blockquote>
 <p>对象，数组，数值，字符串，null，Boolean</p>
@@ -357,7 +310,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-有那些优缺点"><span class="toc-text">ajax 有那些优缺点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-text">如何解决跨域问题?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax过程"><span class="toc-text">ajax过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决跨域问题-1"><span class="toc-text">如何解决跨域问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML和JSON的区别？"><span class="toc-text">XML和JSON的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建ajax过程"><span class="toc-text">创建ajax过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建ajax的过程"><span class="toc-text">创建ajax的过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步加载和延迟加载"><span class="toc-text">异步加载和延迟加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript跨域通信"><span class="toc-text">javascript跨域通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网站性能优化"><span class="toc-text">网站性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax的缺点和在IE下的问题？"><span class="toc-text">ajax的缺点和在IE下的问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？-1"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#请解释一下-JavaScript-的同源策略。"><span class="toc-text">请解释一下 JavaScript 的同源策略。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有同源限制？"><span class="toc-text">为什么要有同源限制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-有那些优缺点"><span class="toc-text">ajax 有那些优缺点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-text">如何解决跨域问题?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET和POST的区别，何时使用POST？"><span class="toc-text">GET和POST的区别，何时使用POST？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax过程"><span class="toc-text">ajax过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决跨域问题-1"><span class="toc-text">如何解决跨域问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML和JSON的区别？"><span class="toc-text">XML和JSON的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建ajax过程"><span class="toc-text">创建ajax过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步加载和延迟加载"><span class="toc-text">异步加载和延迟加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有同源限制？"><span class="toc-text">为什么要有同源限制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript跨域通信"><span class="toc-text">javascript跨域通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网站性能优化"><span class="toc-text">网站性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax的缺点和在IE下的问题？"><span class="toc-text">ajax的缺点和在IE下的问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？-1"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li></ol>
                 </div>
             </div>
         </div>
