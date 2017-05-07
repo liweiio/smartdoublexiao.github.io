@@ -225,9 +225,9 @@
 <li><code>setRequestHeader(name, value)</code>:设置HTTP报头</li>
 <li><code>send(body)</code>:对服务器请求进行初始化。参数body包含请求的主体部分，对于POST请求为键值对字符串；对于GET请求，为null</li>
 </ol>
-<p>$HTML， HTTP，web综合问题</p>
-<p>常见排序算法的时间复杂度,空间复杂度</p>
-<p>前端需要注意哪些SEO</p>
+<p>##$HTML， HTTP，web综合问题</p>
+<p>##常见排序算法的时间复杂度,空间复杂度</p>
+<p>##前端需要注意哪些SEO</p>
 <ol>
 <li>合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面description有所不同；keywords列举出重要关键词即可</li>
 <li>语义化的HTML代码，符合W3C规范：语义化代码让搜索引擎容易理解网页</li>
@@ -237,7 +237,7 @@
 <li>非装饰性图片必须加alt</li>
 <li>提高网站速度：网站速度是搜索引擎排序的一个重要指标</li>
 </ol>
-<p>web开发中会话跟踪的方法有哪些</p>
+<p>##web开发中会话跟踪的方法有哪些</p>
 <ol>
 <li>cookie</li>
 <li>session</li>
@@ -245,12 +245,12 @@
 <li>隐藏input</li>
 <li>ip地址</li>
 </ol>
-<p><img>的title和alt有什么区别</p>
+<p>##<img>的title和alt有什么区别</p>
 <ol>
 <li>title是global attributes之一，用于为元素提供附加的advisory information。通常当鼠标滑动到元素上的时候显示。</li>
 <li>alt是<img>的特有属性，是图片内容的等价描述，用于图片无法加载时显示、读屏器阅读图片。可提图片高可访问性，除了纯装饰图片外都必须设置有意义的值，搜索引擎会重点分析。</li>
 </ol>
-<p>doctype是什么,举例常见doctype及特点</p>
+<p>##doctype是什么,举例常见doctype及特点</p>
 <ol>
 <li>&lt;!doctype&gt;声明必须处于HTML文档的头部，在<html>标签之前，HTML5中不区分大小写</html></li>
 <li>&lt;!doctype&gt;声明不是一个HTML标签，是一个用于告诉浏览器当前HTMl版本的指令</li>
@@ -258,7 +258,7 @@
 <li>在HTML4.01中&lt;!doctype&gt;声明指向一个DTD，由于HTML4.01基于SGML，所以DTD指定了标记规则以保证浏览器正确渲染内容</li>
 <li>HTML5不基于SGML，所以不用指定DTD</li>
 </ol>
-<p>常见dotype：</p>
+<p>##常见dotype：</p>
 <ol>
 <li>HTML4.01 strict：不允许使用表现性、废弃元素（如font）以及frameset。声明：&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “<a href="http://www.w3.org/TR/html4/strict.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</a></li>
 <li>HTML4.01 Transitional:允许使用表现性、废弃元素（如font），不允许使用frameset。声明：&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “<a href="http://www.w3.org/TR/html4/loose.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</a></li>
@@ -268,7 +268,7 @@
 <li>XHTML 1.0 Frameset:允许使用表现性、废弃元素以及frameset，文档必须是结构良好的XML文档。声明：&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Frameset//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</a></li>
 <li>HTML 5: &lt;!doctype html&gt;</li>
 </ol>
-<p>HTML全局属性(global attribute)有哪些</p>
+<p>##HTML全局属性(global attribute)有哪些</p>
 <p>参考资料：MDN: html global attribute或者W3C HTML global-attributes</p>
 <ul>
 <li>accesskey:设置快捷键，提供快速访问元素如aaa在windows下的firefox中按alt + shift + a可激活元素</li>
@@ -288,18 +288,18 @@
 <li>title: 元素相关的建议信息</li>
 <li>translate: 元素和子孙节点内容是否需要本地化</li>
 </ul>
-<p>什么是web语义化,有什么好处</p>
+<p>##什么是web语义化,有什么好处</p>
 <p>web语义化是指通过HTML标记表示页面包含的信息，包含了HTML标签的语义化和css命名的语义化。</p>
 <p>HTML标签的语义化是指：通过使用包含语义的标签（如h1-h6）恰当地表示文档结构</p>
 <p>css命名的语义化是指：为html标签添加有意义的class，id补充未表达的语义，如Microformat通过添加符合规则的class描述信息</p>
-<p>为什么需要语义化：</p>
+<p>##为什么需要语义化：</p>
 <ul>
 <li>去掉样式后页面呈现清晰的结构</li>
 <li>盲人使用读屏器更好地阅读</li>
 <li>搜索引擎更好地理解页面，有利于收录</li>
 <li>便团队项目的可持续运作及维护</li>
 </ul>
-<p>HTTP method</p>
+<p>##HTTP method</p>
 <ol>
 <li>一台服务器要与HTTP1.1兼容，只要为资源实现GET和HEAD方法即可</li>
 <li>GET是最常用的方法，通常用于请求服务器发送某个资源。</li>
@@ -310,7 +310,7 @@
 <li>OPTIONS方法请求web服务器告知其支持的各种功能。可以查询服务器支持哪些方法或者对某些特殊资源支持哪些方法。</li>
 <li>DELETE请求服务器删除请求URL指定的资源</li>
 </ol>
-<p>从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)</p>
+<p>##从浏览器地址栏输入url到显示页面的步骤(以HTTP为例)</p>
 <ol>
 <li>在浏览器地址栏输入URL</li>
 <li>浏览器查看缓存，如果请求资源在缓存中并且新鲜，跳转到转码步骤<ol>
@@ -388,7 +388,7 @@
 </li>
 <li>显示页面（HTML解析过程中会逐步显示页面）</li>
 </ol>
-<p>HTTP request报文结构是怎样的</p>
+<p>##HTTP request报文结构是怎样的</p>
 <p>rfc2616中进行了定义：</p>
 <ol>
 <li>首行是Request-Line包括：请求方法，请求URI，协议版本，CRLF</li>
@@ -399,18 +399,7 @@
 <p> name=qiu&amp;age=25</p>
 </li>
 </ol>
-<p>HTTP response报文结构是怎样的</p>
-<p>rfc2616中进行了定义：</p>
-<ol>
-<li>首行是状态行包括：HTTP版本，状态码，状态描述，后面跟一个CRLF</li>
-<li>首行之后是若干行响应头，包括：通用头部，响应头部，实体头部</li>
-<li>响应头部和响应实体之间用一个CRLF空行分隔</li>
-<li><p>最后是一个可能的消息实体<br>响应报文例子如下：</p>
-<p> HTTP/1.1 200 OK<br> Date: Tue, 08 Jul 2014 05:28:43 GMT<br> Server: Apache/2<br> Last-Modified: Wed, 01 Sep 2004 13:24:52 GMT<br> ETag: “40d7-3e3073913b100”<br> Accept-Ranges: bytes<br> Content-Length: 16599<br> Cache-Control: max-age=21600<br> Expires: Tue, 08 Jul 2014 11:28:43 GMT<br> P3P: policyref=”<a href="http://www.w3.org/2001/05/P3P/p3p.xml" target="_blank" rel="external">http://www.w3.org/2001/05/P3P/p3p.xml</a>“<br> Content-Type: text/html; charset=iso-8859-1</p>
-<p> {“name”: “qiu”, “age”: 25}</p>
-</li>
-</ol>
-<p>如何进行网站性能优化</p>
+<p>##如何进行网站性能优化</p>
 <p>雅虎Best Practices for Speeding Up Your Web Site：</p>
 <ul>
 <li>content方面<ol>
@@ -470,7 +459,7 @@
 </ol>
 </li>
 </ul>
-<p>什么是渐进增强</p>
+<p>##什么是渐进增强</p>
 <p>渐进增强是指在web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高带宽用户提供更好的用户体验。核心原则如下:</p>
 <ul>
 <li>所有浏览器都必须能访问基本内容</li>
@@ -480,7 +469,7 @@
 <li>通过非侵入式、外部javascript提供增强功能</li>
 <li>end-user web browser preferences are respected</li>
 </ul>
-<p>HTTP状态码及其含义</p>
+<p>##HTTP状态码及其含义</p>
 <p>参考RFC 2616</p>
 <ul>
 <li>1XX：信息状态码<ul>
