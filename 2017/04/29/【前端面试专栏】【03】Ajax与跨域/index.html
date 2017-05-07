@@ -181,8 +181,40 @@
 <p>详情：<a href="http://segmentfault.com/blog/trigkit4/1190000000691919" target="_blank" rel="external">JavaScript学习总结（七）Ajax和Http状态字</a></p>
 <p>##ajax怎么向服务器发送请求</p>
 <p>##ajax可以跨域吗？怎么跨域？</p>
-<p>##ajax的优点和缺点</p>
-<h2 id="Flash、Ajax各自的优缺点，在使用中如何取舍？"><a href="#Flash、Ajax各自的优缺点，在使用中如何取舍？" class="headerlink" title="Flash、Ajax各自的优缺点，在使用中如何取舍？"></a>Flash、Ajax各自的优缺点，在使用中如何取舍？</h2><p>1.Ajax的优势：1.可搜索性 2.开放性 3.费用 4.易用性 5.易于开发。<br>2.Flash的优势：1.多媒体处理 2.兼容性 3.矢量图形 4.客户端资源调度<br>3.Ajax的劣势：1.它可能破坏浏览器的后退功能   2.使用动态页面更新使得用户难于将某个特定的状态保存到收藏夹中 ，不过这些都有相关方法解决。<br>4.Flash的劣势：1.二进制格式 2.格式私有 3.flash 文件经常会很大，用户第一次使用的时候需要忍耐较长的等待时间  4.性能问题<br>Flash适合处理多媒体、矢量图形、访问机器；对CSS、处理文本上不足，不容易被搜索。<br>Ajax对CSS、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。<br>共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM  </p>
+<h2 id="Flash、Ajax各自的优缺点，在使用中如何取舍？"><a href="#Flash、Ajax各自的优缺点，在使用中如何取舍？" class="headerlink" title="Flash、Ajax各自的优缺点，在使用中如何取舍？"></a>Flash、Ajax各自的优缺点，在使用中如何取舍？</h2><p>1.Ajax的优势：1.可搜索性 2.开放性 3.费用 4.易用性 5.易于开发。<br>2.Flash的优势：1.多媒体处理 2.兼容性 3.矢量图形 4.客户端资源调度<br>3.Ajax的劣势：1.它可能破坏浏览器的后退功能   2.使用动态页面更新使得用户难于将某个特定的状态保存到收藏夹中 ，不过这些都有相关方法解决。<br>4.Flash的劣势：1.二进制格式 2.格式私有 3.flash 文件经常会很大，用户第一次使用的时候需要忍耐较长的等待时间  4.性能问题 </p>
+<p>Flash适合处理多媒体、矢量图形、访问机器；对CSS、处理文本上不足，不容易被搜索。<br>Ajax对CSS、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。<br>共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM  </p>
+<p>##ajax的缺点<br>1、ajax不支持浏览器back按钮。 2、安全问题 AJAX暴露了与服务器交互的细节。 3、对搜索引擎的支持比较弱。 4、破坏了程序的异常机制。 5、不容易调试。 </p>
+<blockquote>
+<p>IE缓存问题</p>
+</blockquote>
+<p>在IE浏览器下，如果请求的方法是<code>GET</code>，并且请求的<code>URL</code>不变，那么这个请求的结果就会被缓存。解决这个问题的办法可以通过实时改变请求的<code>URL</code>，只要URL改变，就不会被缓存，可以通过在URL末尾添加上随机的时间戳参数(<code>&#39;t&#39;= + new Date().getTime()</code>)</p>
+<p>或者：<br>​<br>    open(‘GET’,’demo.php?rand=+Math.random()’,true);//</p>
+<blockquote>
+<p>Ajax请求的页面历史记录状态问题</p>
+</blockquote>
+<p>可以通过锚点来记录状态，<code>location.hash</code>。让浏览器记录Ajax请求时页面状态的变化。</p>
+<p>还可以通过<code>HTML5</code>的<code>history.pushState</code>，来实现浏览器地址栏的无刷新改变</p>
+<h2 id="XMLHttpRequest通用属性和方法"><a href="#XMLHttpRequest通用属性和方法" class="headerlink" title="XMLHttpRequest通用属性和方法"></a>XMLHttpRequest通用属性和方法</h2><ol>
+<li><code>readyState</code>:表示请求状态的整数，取值：<ul>
+<li>UNSENT（0）：对象已创建</li>
+<li>OPENED（1）：open()成功调用，在这个状态下，可以为xhr设置请求头，或者使用send()发送请求</li>
+<li>HEADERS_RECEIVED(2)：所有重定向已经自动完成访问，并且最终响应的HTTP头已经收到</li>
+<li>LOADING(3)：响应体正在接收</li>
+<li>DONE(4)：数据传输完成或者传输产生错误</li>
+</ul>
+</li>
+<li><code>onreadystatechange</code>：readyState改变时调用的函数</li>
+<li><code>status</code>：服务器返回的HTTP状态码（如，200， 404）</li>
+<li><code>statusText</code>:服务器返回的HTTP状态信息（如，OK，No Content）</li>
+<li><code>responseText</code>:作为字符串形式的来自服务器的完整响应</li>
+<li><code>responseXML</code>: Document对象，表示服务器的响应解析成的XML文档</li>
+<li><code>abort()</code>:取消异步HTTP请求</li>
+<li><code>getAllResponseHeaders()</code>: 返回一个字符串，包含响应中服务器发送的全部HTTP报头。每个报头都是一个用冒号分隔开的名/值对，并且使用一个回车/换行来分隔报头行</li>
+<li><code>getResponseHeader(headerName)</code>:返回headName对应的报头值</li>
+<li><code>open(method, url, asynchronous [, user, password])</code>:初始化准备发送到服务器上的请求。method是HTTP方法，不区分大小写；url是请求发送的相对或绝对URL；asynchronous表示请求是否异步；user和password提供身份验证</li>
+<li><code>setRequestHeader(name, value)</code>:设置HTTP报头</li>
+<li><code>send(body)</code>:对服务器请求进行初始化。参数body包含请求的主体部分，对于POST请求为键值对字符串；对于GET请求，为null</li>
+</ol>
 <h2 id="GET和POST的区别，何时使用POST？"><a href="#GET和POST的区别，何时使用POST？" class="headerlink" title="GET和POST的区别，何时使用POST？"></a>GET和POST的区别，何时使用POST？</h2><p>GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符（1字符=1字节=0.5字）<br>POST：一般用于修改服务器上的资源，对所发送的信息没有限制。<br>GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值，<br>也就是说Get是通过地址栏来传值，而Post是通过提交表单来传值。<br>然而，在以下情况中，请使用 POST 请求：<br>无法使用缓存文件（更新服务器上的文件或数据库）<br>向服务器发送大量数据（POST 没有数据量限制）<br>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠  </p>
 <h2 id="javascript跨域通信"><a href="#javascript跨域通信" class="headerlink" title="javascript跨域通信"></a>javascript跨域通信</h2><p>概念:同源策略是客户端脚本（尤其是<code>Javascript</code>）的重要的安全度量标准。它最早出自<code>Netscape Navigator2.0</code>，其目的是防止某个文档或脚本从多个不同源装载。</p>
 <p>这里的同源策略指的是：协议，域名，端口相同，同源策略是一种安全协议。指一段脚本只能读取来自同一来源的窗口和文档的属性。</p>
@@ -272,7 +304,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-有那些优缺点"><span class="toc-text">ajax 有那些优缺点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建ajax过程"><span class="toc-text">创建ajax过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET和POST的区别，何时使用POST？"><span class="toc-text">GET和POST的区别，何时使用POST？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript跨域通信"><span class="toc-text">javascript跨域通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-text">如何解决跨域问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML和JSON的区别？"><span class="toc-text">XML和JSON的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步加载和延迟加载"><span class="toc-text">异步加载和延迟加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有同源限制？"><span class="toc-text">为什么要有同源限制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax的缺点和在IE下的问题？"><span class="toc-text">ajax的缺点和在IE下的问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？-1"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-有那些优缺点"><span class="toc-text">ajax 有那些优缺点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建ajax过程"><span class="toc-text">创建ajax过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XMLHttpRequest通用属性和方法"><span class="toc-text">XMLHttpRequest通用属性和方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET和POST的区别，何时使用POST？"><span class="toc-text">GET和POST的区别，何时使用POST？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript跨域通信"><span class="toc-text">javascript跨域通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-text">如何解决跨域问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML和JSON的区别？"><span class="toc-text">XML和JSON的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步加载和延迟加载"><span class="toc-text">异步加载和延迟加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有同源限制？"><span class="toc-text">为什么要有同源限制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax的缺点和在IE下的问题？"><span class="toc-text">ajax的缺点和在IE下的问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？-1"><span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li></ol>
                 </div>
             </div>
         </div>

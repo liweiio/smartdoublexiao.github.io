@@ -210,7 +210,13 @@
 <p>不过还有很多细节，比如触发响应函数时的上下文应该是什么，触发响应函数的参数列表应该是什么，如果要求把调用trigger的参数列表都传到响应函数中还要考虑到吧arguments对象转化为纯数组才行等等。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Model</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>._listener = []</div><div class="line">&#125;</div><div class="line">Model.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">eventName,callback</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> listener = <span class="keyword">this</span>._listener[eventName] || []</div><div class="line">  listener.push(callback)</div><div class="line">  <span class="keyword">this</span>._listener[eventName] = listener</div><div class="line">&#125;</div><div class="line">Model.prototype.trigger = <span class="function"><span class="keyword">function</span>(<span class="params">eventName</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>).slice(<span class="number">1</span>)</div><div class="line">  <span class="keyword">var</span> listener = <span class="keyword">this</span>._listener[eventName]</div><div class="line">  <span class="keyword">if</span>(!<span class="built_in">Array</span>.isArray(listener))&#123;</div><div class="line">    <span class="keyword">return</span></div><div class="line">  &#125;</div><div class="line">  listener.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">    <span class="keyword">try</span>&#123;</div><div class="line">      callback.apply(<span class="keyword">this</span>, args)</div><div class="line">    &#125;<span class="keyword">catch</span>(er)&#123;</div><div class="line">      <span class="built_in">console</span>.error(er)</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> hello = <span class="keyword">new</span> Model()</div><div class="line">hello.bind(<span class="string">"print"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a,b)</div><div class="line">&#125;)</div><div class="line">hello.bind(<span class="string">"print"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(b,a)</div><div class="line">&#125;)</div><div class="line">hello.trigger(<span class="string">"print"</span>,<span class="string">"1"</span>,<span class="string">"2"</span>)</div></pre></td></tr></table></figure>
-<h2 id="事件如何派发-事件广播（dispatchEvent）"><a href="#事件如何派发-事件广播（dispatchEvent）" class="headerlink" title="事件如何派发/事件广播（dispatchEvent）"></a>事件如何派发/事件广播（dispatchEvent）</h2>
+<h2 id="事件如何派发-事件广播（dispatchEvent）"><a href="#事件如何派发-事件广播（dispatchEvent）" class="headerlink" title="事件如何派发/事件广播（dispatchEvent）"></a>事件如何派发/事件广播（dispatchEvent）</h2><h2 id="事件、IE与火狐的事件机制有什么区别？-如何阻止冒泡？"><a href="#事件、IE与火狐的事件机制有什么区别？-如何阻止冒泡？" class="headerlink" title="事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？"></a>事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？</h2><ol>
+<li>我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为。</li>
+<li>事件处理机制：IE是事件冒泡、firefox同时支持两种事件模型，也就是：捕获型事件和冒泡型事件。； </li>
+<li><code>ev.stopPropagation()</code>;注意旧ie的方法 <code>ev.cancelBubble = true</code>; </li>
+</ol>
+<h2 id="请解释什么是事件代理"><a href="#请解释什么是事件代理" class="headerlink" title="请解释什么是事件代理"></a>请解释什么是事件代理</h2><p>事件代理（Event Delegation），又称之为事件委托。是 <code>JavaScript</code> 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。事件代理的原理是<code>DOM</code>元素的事件冒泡。使用事件代理的好处是可以提高性能。</p>
+
                 <hr>
                 
 
@@ -223,8 +229,8 @@
                     
                     
                     <li class="next">
-                        <a href="/2017/04/24/前端面试题总结/" data-toggle="tooltip" data-placement="top"
-                           title="前端面试题总结">Next Post &rarr;</a>
+                        <a href="/2017/03/09/rem是什么/" data-toggle="tooltip" data-placement="top"
+                           title="rem是什么">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -237,7 +243,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#描述下js里面的事件流"><span class="toc-text">描述下js里面的事件流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IE和W3C绑定事件解绑事件的方法的区别、参数"><span class="toc-text">IE和W3C绑定事件解绑事件的方法的区别、参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件对象e有什么区别"><span class="toc-text">事件对象e有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的代理-委托的原理以及优缺点"><span class="toc-text">事件的代理/委托的原理以及优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写原生js实现事件代理-要求兼容浏览器"><span class="toc-text">手写原生js实现事件代理,要求兼容浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现事件模型"><span class="toc-text">实现事件模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件如何派发-事件广播（dispatchEvent）"><span class="toc-text">事件如何派发/事件广播（dispatchEvent）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#描述下js里面的事件流"><span class="toc-text">描述下js里面的事件流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IE和W3C绑定事件解绑事件的方法的区别、参数"><span class="toc-text">IE和W3C绑定事件解绑事件的方法的区别、参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件对象e有什么区别"><span class="toc-text">事件对象e有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的代理-委托的原理以及优缺点"><span class="toc-text">事件的代理/委托的原理以及优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手写原生js实现事件代理-要求兼容浏览器"><span class="toc-text">手写原生js实现事件代理,要求兼容浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现事件模型"><span class="toc-text">实现事件模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件如何派发-事件广播（dispatchEvent）"><span class="toc-text">事件如何派发/事件广播（dispatchEvent）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件、IE与火狐的事件机制有什么区别？-如何阻止冒泡？"><span class="toc-text">事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#请解释什么是事件代理"><span class="toc-text">请解释什么是事件代理</span></a></li></ol>
                 </div>
             </div>
         </div>
