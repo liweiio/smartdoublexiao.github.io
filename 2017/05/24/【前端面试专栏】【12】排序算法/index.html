@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        WuXiaoxiao&#39;s blog
+        【前端面试专栏】【12】排序算法｜WuXiaoxiao&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://xxwu.tech/2017/05/18/【前端面试专栏】【12】排序算法/">
+    <link rel="canonical" href="http://xxwu.tech/2017/05/24/【前端面试专栏】【12】排序算法/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -127,14 +127,13 @@
 <!--only post-->
 
 
-<img class="wechat-title-img"
-     src="../../../../images/bg12.jpg">
+<img class="wechat-title-img" src="../../../../images/offer.png">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('../../../../images/bg12.jpg')
+        background-image: url('../../../../images/offer.png');
     }
 
     
@@ -145,15 +144,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1></h1>
+                    <h1>【前端面试专栏】【12】排序算法</h1>
                     
                     <span class="meta">
-                         作者 WuXiaoxaio
+                         作者 WuXiaoxiao
                         <span>
-                          日期 2017-05-18
+                          日期 2017-05-24
                          </span>
                     </span>
                     <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#前端面试专栏"
+                           title="前端面试专栏">前端面试专栏</a>
                         
                     </div>
                 </div>
@@ -162,7 +164,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            
+            【前端面试专栏】【12】排序算法
         </span>
     </div>
 </header>
@@ -173,50 +175,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                //冒泡排序
-function bulluesort(arr){
-	var len, i, j, len2, tmp;
-	for(var i = 0, len = arr.length; i < len; i++ ){
-		for(var j = 0 , len2 = len - 1- i ; j < len2; j++){
-			if(arr[i] > arr[j+ 1]){
-				tmp = arr[i];
-				arr[i] = arr[j+1];
-				arr[j + 1] = tmp;
-			}
-		}
-	}
-	return arr;
-}
-
-//快速排序
-function quicksort(arr){
-	var len = arr.length;
-	if(len <= 1){return="" arr}="" var="" pivotindex="Math.floor(len/2)," pivot="arr.splice(pivotIndex,1)[0]," left="[]," right="[];" len="" --="" ;="" for(var="" i="0;" i<="" i++){="" if(arr[i]="" <="pivot){" left.push(arr[i]);="" }else{="" right.push(arr[i]);="" }="" return="" quicksort(left).concat(pivot,quicksort(right));="" 选择排序="" function="" choosesort(arr){="" minindex,="" i,="" j,="" tmp;="" for(i="0;" -="" 1;="" minindex="i;" for(j="i" +="" j="" len;="" j++){="" if(arr[minindex]="">arr[j]){
-				minIndex = j;
-			}
-		}
-		if(i != minIndex){
-			tmp = arr[i];
-			arr[i] = arr[minIndex];
-			arr[minIndex] = tmp;
-		}
-	}
-	return arr;
-}</=>
+                <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//冒泡排序</div><div class="line">function bulluesort(arr)&#123;</div><div class="line">	var len, i, j, len2, tmp;</div><div class="line">	for(var i = 0, len = arr.length; i &lt; len; i++ )&#123;</div><div class="line">		for(var j = 0 , len2 = len - 1- i ; j &lt; len2; j++)&#123;</div><div class="line">			if(arr[i] &gt; arr[j+ 1])&#123;</div><div class="line">				tmp = arr[i];</div><div class="line">				arr[i] = arr[j+1];</div><div class="line">				arr[j + 1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//快速排序</div><div class="line">function quicksort(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	if(len &lt;= 1)&#123;return arr&#125;</div><div class="line">	var pivotIndex = Math.floor(len/2),</div><div class="line">		pivot = arr.splice(pivotIndex,1)[0],</div><div class="line">		left = [],</div><div class="line">		right = [];</div><div class="line">	len -- ;</div><div class="line">	for(var i = 0; i&lt; len ; i++)&#123;</div><div class="line">		if(arr[i] &lt;= pivot)&#123;</div><div class="line">			left.push(arr[i]);</div><div class="line">		&#125;else&#123;</div><div class="line">			right.push(arr[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return quicksort(left).concat(pivot,quicksort(right));</div><div class="line">&#125;</div><div class="line"></div><div class="line">//选择排序</div><div class="line">function chooseSort(arr)&#123;</div><div class="line">	var len = arr.length, minIndex, i, j, tmp;</div><div class="line">	for(i = 0; i &lt; len - 1; i++)&#123;</div><div class="line">		minIndex = i;</div><div class="line">		for(j=i + 1; j &lt; len; j++)&#123;</div><div class="line">			if(arr[minIndex]&gt;arr[j])&#123;</div><div class="line">				minIndex = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		if(i != minIndex)&#123;</div><div class="line">			tmp = arr[i];</div><div class="line">			arr[i] = arr[minIndex];</div><div class="line">			arr[minIndex] = tmp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/05/24/【前端面试专栏】【12】排序算法/" data-toggle="tooltip" data-placement="top"
-                           title="【前端面试专栏】【12】排序算法">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/05/07/【前端面试专栏】【12】BOM/" data-toggle="tooltip" data-placement="top"
-                           title="【前端面试专栏】【12】BOM">Next Post &rarr;</a>
+                        <a href="/2017/05/18/【前端面试专栏】【12】排序算法/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -250,6 +218,9 @@ function quicksort(arr){
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
+                        
+                        <a class="tag" href="/tags/#前端面试专栏"
+                           title="前端面试专栏">前端面试专栏</a>
                         
                     </div>
                 </section>
