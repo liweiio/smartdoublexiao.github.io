@@ -189,25 +189,19 @@
 <h2 id="本地环境准备"><a href="#本地环境准备" class="headerlink" title="本地环境准备"></a>本地环境准备</h2><p>关于创建<a href="https://github.com/" target="_blank" rel="external">Github仓库</a>，<a href="https://git-scm.com/download/" target="_blank" rel="external">Git安装</a>，<a href="https://nodejs.org/en/download/" target="_blank" rel="external">Nodejs安装</a>我就不再赘述。</p>
 <hr>
 <h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p><a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="external">Hexo</a>是一个极速、简单且强大的静态博客架构，安装和使用十分便捷： </p>
-<p>打开终端，输入Hexo的安装命令：</p>
-<pre><code>npm install hexo-cli -g
-</code></pre><p>定位到你希望存储博客的目录下:</p>
-<pre><code>cd ***
-</code></pre><p>初始化本地博客仓库：</p>
-<pre><code>hexo init 你的用户名.github.io // 尽量和Github仓库使用同一个名称
-</code></pre><p>基本的博客框架就已经搭建完了，Hexo安装完成后默认使用landscape主题，终端定位到xxx.github.io文件夹下，输入下面的命令预览：</p>
-<pre><code>hero s
-</code></pre><p>在浏览器上输入网址：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ,Press Ctrl+C to stop. 就能预览到landscape主题下的博客效果。</p>
+<p>打开终端，输入Hexo的安装命令：<br>​<br>    npm install hexo-cli -g</p>
+<p>定位到你希望存储博客的目录下:<br>​<br>    cd <em>*</em></p>
+<p>初始化本地博客仓库：<br>​<br>    hexo init 你的用户名.github.io // 尽量和Github仓库使用同一个名称</p>
+<p>基本的博客框架就已经搭建完了，Hexo安装完成后默认使用landscape主题，终端定位到xxx.github.io文件夹下，输入下面的命令预览：<br>​<br>    hexo s</p>
+<p>在浏览器上输入网址：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ,Press Ctrl+C to stop. 就能预览到landscape主题下的博客效果。</p>
 <h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><p>我原本用的是大家都在用的NexT主题，但是看到@<a href="https://kchen.cc" target="_blank" rel="external">k.Chen</a>安利@<a href="http://ahonn.me/" target="_blank" rel="external">ahonn</a>制作的简约主题<a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="external">Even</a>，确实蛮好看的，所以就搬过来用了，步骤如下：</p>
-<p>将终端定位到xxx.github.io目录下，下载并安装Even主题：</p>
-<pre><code>cd xxx.github.io
-
-git clone https://github.com/iissnan/hexo-theme-even 
+<p>将终端定位到xxx.github.io目录下，下载并安装Even主题：<br>​<br>    cd xxx.github.io</p>
+<pre><code>git clone https://github.com/iissnan/hexo-theme-even 
 
 cd even/
 
 bin/install
-</code></pre><p>在文件目录中打开<code>_config.yml</code>(./xxx.github.io/config.yml)启用Even主题：</p>
+</code></pre><p>在文件目录中打开<code>_config.yml</code>(./xxx.github.io/config.yml)启用Even主题：<br>​    </p>
 <pre><code># Extensions
 
 ## Plugins: http://hexo.io/plugins/
@@ -217,9 +211,8 @@ bin/install
 theme: even
 </code></pre><p>Even主题就安装好了，其他诸如更改名字、添加社交信息、增加自定义页面、更改LOGO，都在<code>xxx.github.io/themes/even/doc/doc_zh.md</code>中，不再一一赘述。</p>
 <hr>
-<h2 id="博客部署"><a href="#博客部署" class="headerlink" title="博客部署"></a>博客部署</h2><p>终端输入下面的命令完成安装自动部署发布工具：</p>
-<pre><code>sudo npm install hexo-deployer-git --save
-</code></pre><p>在文件目录中打开<code>_config.yml</code>(./xxx.github.io/config.yml),编辑最后的 Deployment 和 deploy 配置项：</p>
+<h2 id="博客部署"><a href="#博客部署" class="headerlink" title="博客部署"></a>博客部署</h2><p>终端输入下面的命令完成安装自动部署发布工具：<br>​<br>    sudo npm install hexo-deployer-git –save</p>
+<p>在文件目录中打开<code>_config.yml</code>(./xxx.github.io/config.yml),编辑最后的 Deployment 和 deploy 配置项：<br>​    </p>
 <pre><code># Deployment
 
 ## Docs: https://hexo.io/docs/deployment.html
@@ -227,22 +220,16 @@ theme: even
 deploy:
 
  type: git
+</code></pre><p>​<br>​<br>    deploy:</p>
+<pre><code>type: git
 
+repo: &lt;repository url&gt;
 
+branch: [branch]
 
-deploy:
-
- type: git
-
- repo: &lt;repository url&gt;
-
- branch: [branch]
-
- message: [message]
-</code></pre><p>在本地确认博客效果后，就可以将md文件生成静态网页上传至GithubPages，在终端定位到xxx.github.io目录下，执行下面的命令即可：</p>
-<pre><code>hexo clean #清楚网页缓存
-
-hexo g #生成静态网页
+message: [message]
+</code></pre><p>在本地确认博客效果后，就可以将md文件生成静态网页上传至GithubPages，在终端定位到xxx.github.io目录下，执行下面的命令即可：<br>​<br>    hexo clean #清楚网页缓存</p>
+<pre><code>hexo g #生成静态网页
 
 hexo d #开始部署
 
@@ -253,14 +240,12 @@ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
 <hr>
 <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>现在我们已经可以无碍的使用 Hexo 来写博客并部署到GitHub上了，可是有一个地方不太优雅，那就是域名。因为我们使用的是 Github 提供的二级域名 github.io，一来太长，二来也不太够自定义、个性化。</p>
 <p>所以，我们可以去买一个域名，然后解析到 Github 去，国内的万网、西部数码，国外的 Godady 等网站都可以购买。我的域名 .tech 每年才 5 元，价格实惠。实在不济，还有 .tk，.ml，.cf，.ga 四个免费域名提供开放注册（为互联网的免费精神干杯🍻）。</p>
-<p>购买域名之后，我们只需要在购买域名的网站把 DNS 解析创建一个CNAME记录和两个 A 记录到：</p>
-<pre><code>@ A 192.30.252.153
-
-@ A 192.30.252.154
+<p>购买域名之后，我们只需要在购买域名的网站把 DNS 解析创建一个CNAME记录和两个 A 记录到：<br>​<br>    @ A 192.30.252.153</p>
+<pre><code>@ A 192.30.252.154
 
 WWW CNAME xxx.github.io
 </code></pre><p>之后在自己的博客根目录下创建一个 CNAME 文件，里面放你解析的域名。</p>
-<p>之后修改根目录下的 _config.yml 文件，把站点地址更新成新的绑定的域名即可</p>
+<p>之后修改根目录下的 _config.yml 文件，把站点地址更新成新的绑定的域名即可<br>​    </p>
 <pre><code># URL
 
 ## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;
@@ -269,12 +254,9 @@ url: http://yoursite.com
 </code></pre><p>现在，就可以使用自己的域名访问自己的博客了，例如： <a href="http://xxwu.tech">http://xxwu.tech</a></p>
 <hr>
 <h2 id="评论CSS美化"><a href="#评论CSS美化" class="headerlink" title="评论CSS美化"></a>评论CSS美化</h2><p>为了更好地交流互动，我使用了多说的评论模块。首先，在<a href="http://duoshuo.com" target="_blank" rel="external">多说</a>网站登录，点击<code>我要安装</code>，进入后台管理，在设置中输入自己的域名：<code>xxx.duoshuo.com</code>，其中<code>xxx</code>就是你的<code>duoshuo_shortname</code></p>
-<p>然后需要自己创建Board界面,打开终端，定位到xxx.github.io目录下,执行下面的命令:</p>
-<pre><code>hexo new page board
-</code></pre><p>创建完成后，在对应的目录下找到index.md文件，进行如下的修改：</p>
-<pre><code>---
-
-title: board
+<p>然后需要自己创建Board界面,打开终端，定位到xxx.github.io目录下,执行下面的命令:<br>​<br>    hexo new page board</p>
+<p>创建完成后，在对应的目录下找到index.md文件，进行如下的修改：</p>
+<h2 id="​"><a href="#​" class="headerlink" title="​    "></a>​    </h2><pre><code>title: board
 
 date: 2016-11-30 17:16:58
 
@@ -285,19 +267,17 @@ layout: page
 **最近访客**
 
 &lt;div class=&quot;ds-recent-visitors&quot; data-num-items=&quot;28&quot; data-avatar-size=&quot;42&quot; id=&quot;ds-recent-visitors&quot;&gt;&lt;/div&gt;
-</code></pre><p>打开<code>xxx.github.io/themes/even/_config.yml</code>,修改Menu模块代码：</p>
-<pre><code>menu:
+</code></pre><p>打开<code>xxx.github.io/themes/even/_config.yml</code>,修改Menu模块代码：<br>​<br>    menu:</p>
+<pre><code>Archives: /archives/
 
- Archives: /archives/
+Categories: /categories/
 
- Categories: /categories/
+Tags: /tags/
 
- Tags: /tags/
+About: /about/
 
- About: /about/
-
- Board: /board/
-</code></pre><p>修改comments模块，其中<code>post</code>是指各篇文章和留言板的评论功能是否启用，而<code>about</code>是指关于页面的。</p>
+Board: /board/
+</code></pre><p>修改comments模块，其中<code>post</code>是指各篇文章和留言板的评论功能是否启用，而<code>about</code>是指关于页面的。<br>​    </p>
 <pre><code># comments
 
 comments:
@@ -305,7 +285,7 @@ comments:
  post: true
 
  about: false
-</code></pre><p>以及后面的：</p>
+</code></pre><p>以及后面的：<br>​    </p>
 <pre><code> # Comments
 
 ## Duoshuo
@@ -315,7 +295,7 @@ duoshuo_shortname: xxx(上文提到的多说短域名)
 ## Disqus
 
 #disqus_shortname: Your disqus ID
-</code></pre><p>现在你的网站就可以实现最近访客和评论留言功能了，但是界面还不够美观，在这里我们再次进入<a href="http://duoshuo.com" target="_blank" rel="external">多说</a>的后台管理，在<code>设置/基本设置/自定义CSS</code>中可以自定义评论框和留言板的样式，在这里贴出我的CSS样式代码：</p>
+</code></pre><p>现在你的网站就可以实现最近访客和评论留言功能了，但是界面还不够美观，在这里我们再次进入<a href="http://duoshuo.com" target="_blank" rel="external">多说</a>的后台管理，在<code>设置/基本设置/自定义CSS</code>中可以自定义评论框和留言板的样式，在这里贴出我的CSS样式代码：<br>​    </p>
 <pre><code>#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current {border:0px;color:#848568;text-shadow:none}
 
 #ds-thread #ds-reset .ds-highlight {font-family:Arial, Helvetica, sans-serif;font-size:14px;font-weight:bold;color:#698376 !important;}
@@ -450,7 +430,7 @@ display:none !important;
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地环境准备"><span class="toc-text">本地环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo安装"><span class="toc-text">Hexo安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题安装"><span class="toc-text">主题安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客部署"><span class="toc-text">博客部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定域名"><span class="toc-text">绑定域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#评论CSS美化"><span class="toc-text">评论CSS美化</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地环境准备"><span class="toc-text">本地环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo安装"><span class="toc-text">Hexo安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题安装"><span class="toc-text">主题安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客部署"><span class="toc-text">博客部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定域名"><span class="toc-text">绑定域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#评论CSS美化"><span class="toc-text">评论CSS美化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#​"><span class="toc-text">​    </span></a></li></ol>
                 </div>
             </div>
         </div>
