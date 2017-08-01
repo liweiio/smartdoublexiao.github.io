@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://xxwu.tech/2017/05/24/【前端面试专栏】【12】排序算法/">
+    <link rel="canonical" href="http://xxwu.tech/2017/07/29/【前端面试专栏】【12】排序算法/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -157,7 +157,7 @@
                     <span class="meta">
                          作者 WuXiaoxiao
                         <span>
-                          日期 2017-05-24
+                          日期 2017-07-29
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -183,21 +183,23 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//冒泡排序</div><div class="line">function bulluesort(arr)&#123;</div><div class="line">	var len, i, j, len2, tmp;</div><div class="line">	for(var i = 0, len = arr.length; i &lt; len; i++ )&#123;</div><div class="line">		for(var j = 0 , len2 = len - 1- i ; j &lt; len2; j++)&#123;</div><div class="line">			if(arr[i] &gt; arr[j+ 1])&#123;</div><div class="line">				tmp = arr[i];</div><div class="line">				arr[i] = arr[j+1];</div><div class="line">				arr[j + 1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//快速排序</div><div class="line">function quicksort(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	if(len &lt;= 1)&#123;return arr&#125;</div><div class="line">	var pivotIndex = Math.floor(len/2),</div><div class="line">		pivot = arr.splice(pivotIndex,1)[0],</div><div class="line">		left = [],</div><div class="line">		right = [];</div><div class="line">	len -- ;</div><div class="line">	for(var i = 0; i&lt; len ; i++)&#123;</div><div class="line">		if(arr[i] &lt;= pivot)&#123;</div><div class="line">			left.push(arr[i]);</div><div class="line">		&#125;else&#123;</div><div class="line">			right.push(arr[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return quicksort(left).concat(pivot,quicksort(right));</div><div class="line">&#125;</div><div class="line"></div><div class="line">//选择排序</div><div class="line">function chooseSort(arr)&#123;</div><div class="line">	var len = arr.length, minIndex, i, j, tmp;</div><div class="line">	for(i = 0; i &lt; len - 1; i++)&#123;</div><div class="line">		minIndex = i;</div><div class="line">		for(j=i + 1; j &lt; len; j++)&#123;</div><div class="line">			if(arr[minIndex]&gt;arr[j])&#123;</div><div class="line">				minIndex = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		if(i != minIndex)&#123;</div><div class="line">			tmp = arr[i];</div><div class="line">			arr[i] = arr[minIndex];</div><div class="line">			arr[minIndex] = tmp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+                <h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="//冒泡排序"></a>//冒泡排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function bulluesort(arr)&#123;</div><div class="line">	var len, i, j, len2, tmp;</div><div class="line">	for(var i = 0, len = arr.length; i &lt; len; i++ )&#123;</div><div class="line">		for(var j = 0 , len2 = len - 1- i ; j &lt; len2; j++)&#123;</div><div class="line">			if(arr[i] &gt; arr[j+ 1])&#123;</div><div class="line">				tmp = arr[i];</div><div class="line">				arr[i] = arr[j+1];</div><div class="line">				arr[j + 1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function quicksort(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	if(len &lt;= 1)&#123;return arr&#125;</div><div class="line">	var pivotIndex = Math.floor(len/2),</div><div class="line">		pivot = arr.splice(pivotIndex,1)[0],</div><div class="line">		left = [],</div><div class="line">		right = [];</div><div class="line">	len -- ;</div><div class="line">	for(var i = 0; i&lt; len ; i++)&#123;</div><div class="line">		if(arr[i] &lt;= pivot)&#123;</div><div class="line">			left.push(arr[i]);</div><div class="line">		&#125;else&#123;</div><div class="line">			right.push(arr[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return quicksort(left).concat(pivot,quicksort(right));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function chooseSort(arr)&#123;</div><div class="line">	var len = arr.length, minIndex, i, j, tmp;</div><div class="line">	for(i = 0; i &lt; len - 1; i++)&#123;</div><div class="line">		minIndex = i;</div><div class="line">		for(j=i + 1; j &lt; len; j++)&#123;</div><div class="line">			if(arr[minIndex]&gt;arr[j])&#123;</div><div class="line">				minIndex = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		if(i != minIndex)&#123;</div><div class="line">			tmp = arr[i];</div><div class="line">			arr[i] = arr[minIndex];</div><div class="line">			arr[minIndex] = tmp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
                 <hr>
                 
 
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/05/25/获取图片的版权信息/" data-toggle="tooltip" data-placement="top"
-                           title="获取图片的版权信息">&larr; Previous Post</a>
+                        <a href="/2017/07/29/【前端面试专栏】【11】面筋/" data-toggle="tooltip" data-placement="top"
+                           title="[前端面试专栏][11]面筋">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/05/07/【前端面试专栏】【11】面筋/" data-toggle="tooltip" data-placement="top"
-                           title="[前端面试专栏][11]面筋">Next Post &rarr;</a>
+                        <a href="/2017/07/27/oops/" data-toggle="tooltip" data-placement="top"
+                           title="轻轻喘出一口气">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -210,7 +212,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序"><span class="toc-text">//冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排序"><span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择排序"><span class="toc-text">选择排序</span></a></li></ol>
                 </div>
             </div>
         </div>

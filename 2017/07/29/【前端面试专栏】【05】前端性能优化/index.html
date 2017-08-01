@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://xxwu.tech/2017/04/29/【前端面试专栏】【05】前端性能优化/">
+    <link rel="canonical" href="http://xxwu.tech/2017/07/29/【前端面试专栏】【05】前端性能优化/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -157,7 +157,7 @@
                     <span class="meta">
                          作者 WuXiaoxiao
                         <span>
-                          日期 2017-04-29
+                          日期 2017-07-29
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -183,7 +183,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>##你有哪些性能优化的方法？<br>（1） 减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。<br>（2） 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数<br>（3） 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。<br>（4） 当需要设置的样式很多时设置className而不是直接操作style。<br>（5） 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。<br>（6） 避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。<br>（7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。 </p>
+                <h2 id="你有哪些性能优化的方法？"><a href="#你有哪些性能优化的方法？" class="headerlink" title="你有哪些性能优化的方法？"></a>你有哪些性能优化的方法？</h2><p>（1） 减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。<br>（2） 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数<br>（3） 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。<br>（4） 当需要设置的样式很多时设置className而不是直接操作style。<br>（5） 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。<br>（6） 避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。<br>（7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。 </p>
 <p>代码层面：避免使用css表达式，避免使用高级选择器，通配选择器。</p>
 <p>缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务端配置Etag，减少DNS查找等</p>
 <p>请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。</p>
@@ -265,8 +265,7 @@
 </ol>
 </li>
 </ul>
-<p>##什么是渐进增强</p>
-<p>渐进增强是指在web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高带宽用户提供更好的用户体验。核心原则如下:</p>
+<h2 id="什么是渐进增强"><a href="#什么是渐进增强" class="headerlink" title="什么是渐进增强"></a>什么是渐进增强</h2><p>渐进增强是指在web设计时强调可访问性、语义化HTML标签、外部样式表和脚本。保证所有人都能访问页面的基本内容和功能同时为高级浏览器和高带宽用户提供更好的用户体验。核心原则如下:</p>
 <ul>
 <li>所有浏览器都必须能访问基本内容</li>
 <li>所有浏览器都必须能使用基本功能</li>
@@ -378,22 +377,16 @@
 <li>PNG8类似GIF颜色上限为256，文件小，支持alpha透明度，无动画</li>
 <li>适合图标、背景、按钮</li>
 </ol>
-<p>##浏览器兼容</p>
-<h3 id="IE浏览器"><a href="#IE浏览器" class="headerlink" title="IE浏览器"></a>IE浏览器</h3><h3 id="CSS3新特性"><a href="#CSS3新特性" class="headerlink" title="CSS3新特性"></a>CSS3新特性</h3><h3 id="HTML5新特性"><a href="#HTML5新特性" class="headerlink" title="HTML5新特性"></a>HTML5新特性</h3><h3 id="ES2015"><a href="#ES2015" class="headerlink" title="ES2015"></a>ES2015</h3><h2 id="移动端版本"><a href="#移动端版本" class="headerlink" title="移动端版本"></a>移动端版本</h2>
+<h2 id="浏览器兼容"><a href="#浏览器兼容" class="headerlink" title="浏览器兼容"></a>浏览器兼容</h2><h3 id="IE浏览器"><a href="#IE浏览器" class="headerlink" title="IE浏览器"></a>IE浏览器</h3><h3 id="CSS3新特性"><a href="#CSS3新特性" class="headerlink" title="CSS3新特性"></a>CSS3新特性</h3><h3 id="HTML5新特性"><a href="#HTML5新特性" class="headerlink" title="HTML5新特性"></a>HTML5新特性</h3><h3 id="ES2015"><a href="#ES2015" class="headerlink" title="ES2015"></a>ES2015</h3><h2 id="移动端版本"><a href="#移动端版本" class="headerlink" title="移动端版本"></a>移动端版本</h2>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/04/29/【前端面试专栏】【06】HTTP/" data-toggle="tooltip" data-placement="top"
-                           title="[前端面试专栏][06]HTTP">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/04/29/【前端面试专栏】【04】闭包与作用域/" data-toggle="tooltip" data-placement="top"
-                           title="[前端面试专栏][04]闭包与作用域">Next Post &rarr;</a>
+                        <a href="/2017/07/29/【前端面试专栏】【10】javascript部分/" data-toggle="tooltip" data-placement="top"
+                           title="[前端面试专栏][10]javascript部分">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -406,7 +399,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端性能优化"><span class="toc-text">移动端性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列举IE-与其他浏览器不一样的特性？"><span class="toc-text">列举IE 与其他浏览器不一样的特性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IE6浏览器有哪些常见的bug-缺陷或者与标准不一致的地方-如何解决"><span class="toc-text">IE6浏览器有哪些常见的bug,缺陷或者与标准不一致的地方,如何解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谈谈你对重构的理解"><span class="toc-text">谈谈你对重构的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说说你对前端架构师的理解"><span class="toc-text">说说你对前端架构师的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端需要注意哪些SEO"><span class="toc-text">前端需要注意哪些SEO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是web语义化-有什么好处"><span class="toc-text">什么是web语义化,有什么好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PNG-GIF-JPG的区别及如何选"><span class="toc-text">PNG,GIF,JPG的区别及如何选</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IE浏览器"><span class="toc-text">IE浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3新特性"><span class="toc-text">CSS3新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新特性"><span class="toc-text">HTML5新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES2015"><span class="toc-text">ES2015</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端版本"><span class="toc-text">移动端版本</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#你有哪些性能优化的方法？"><span class="toc-text">你有哪些性能优化的方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是渐进增强"><span class="toc-text">什么是渐进增强</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端性能优化"><span class="toc-text">移动端性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列举IE-与其他浏览器不一样的特性？"><span class="toc-text">列举IE 与其他浏览器不一样的特性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IE6浏览器有哪些常见的bug-缺陷或者与标准不一致的地方-如何解决"><span class="toc-text">IE6浏览器有哪些常见的bug,缺陷或者与标准不一致的地方,如何解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谈谈你对重构的理解"><span class="toc-text">谈谈你对重构的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说说你对前端架构师的理解"><span class="toc-text">说说你对前端架构师的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端需要注意哪些SEO"><span class="toc-text">前端需要注意哪些SEO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是web语义化-有什么好处"><span class="toc-text">什么是web语义化,有什么好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PNG-GIF-JPG的区别及如何选"><span class="toc-text">PNG,GIF,JPG的区别及如何选</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器兼容"><span class="toc-text">浏览器兼容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IE浏览器"><span class="toc-text">IE浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3新特性"><span class="toc-text">CSS3新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新特性"><span class="toc-text">HTML5新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES2015"><span class="toc-text">ES2015</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端版本"><span class="toc-text">移动端版本</span></a></li></ol>
                 </div>
             </div>
         </div>
