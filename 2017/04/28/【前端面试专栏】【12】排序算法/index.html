@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        [前端面试专栏][08]安全性｜WuXiaoxiao&#39;s blog
+        [前端面试专栏][12]排序算法｜WuXiaoxiao&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://xxwu.tech/2017/04/29/【前端面试专栏】【08】安全性/">
+    <link rel="canonical" href="http://xxwu.tech/2017/04/28/【前端面试专栏】【12】排序算法/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -152,12 +152,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>[前端面试专栏][08]安全性</h1>
+                    <h1>[前端面试专栏][12]排序算法</h1>
                     
                     <span class="meta">
                          作者 WuXiaoxiao
                         <span>
-                          日期 2017-04-29
+                          日期 2017-04-28
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -172,7 +172,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            [前端面试专栏][08]安全性
+            [前端面试专栏][12]排序算法
         </span>
     </div>
 </header>
@@ -183,47 +183,9 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h2 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h2><h2 id="编解码"><a href="#编解码" class="headerlink" title="编解码"></a>编解码</h2><h2 id="常见web安全及防护原理"><a href="#常见web安全及防护原理" class="headerlink" title="常见web安全及防护原理"></a>常见web安全及防护原理</h2><blockquote>
-<p>sql注入原理</p>
-</blockquote>
-<p>就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
-<p>总的来说有以下几点：<br>​<br>    1.永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双”-“进行转换等。</p>
-<pre><code>2.永远不要使用动态拼装SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取。
-
-3.永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。
-
-4.不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。
-</code></pre><blockquote>
-<p>XSS原理及防范</p>
-</blockquote>
-<p>Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 <code>html</code>标签或者<code>javascript</code>代码。比如：攻击者在论坛中放一个</p>
-<p>看似安全的链接，骗取用户点击后，窃取<code>cookie</code>中的用户私密信息；或者攻击者在论坛中加一个恶意表单，</p>
-<p>当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。</p>
-<blockquote>
-<p>XSS防范方法</p>
-</blockquote>
-<p>首先代码里对用户输入的地方和变量都需要仔细检查长度和对<code>”&lt;”,”&gt;”,”;”,”’”</code>等字符做过滤；其次任何内容写到页面之前都必须加以<code>encode</code>，避免不小心把<code>html tag</code> 弄出来。这一个层面做好，至少可以堵住超过一半的<code>XSS</code> 攻击。</p>
-<p>首先，避免直接在<code>cookie</code> 中泄露用户隐私，例如email、密码等等。</p>
-<p>其次，通过使<code>cookie</code> 和系统<code>ip</code> 绑定来降低<code>cookie</code> 泄露后的危险。这样攻击者得到的<code>cookie</code> 没有实际价值，不可能拿来重放。</p>
-<p>如果网站不需要再浏览器端对<code>cookie</code> 进行操作，可以在<code>Set-Cookie</code> 末尾加上<code>HttpOnly</code> 来防止<code>javascript</code> 代码直接获取<code>cookie</code> 。</p>
-<p>尽量采用<code>POST</code> 而非<code>GET</code> 提交表单</p>
-<blockquote>
-<p>XSS与CSRF有什么区别吗？</p>
-</blockquote>
-<p><code>XSS</code>是获取信息，不需要提前知道其他用户页面的代码和数据包。<code>CSRF</code>是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。</p>
-<p>要完成一次<code>CSRF</code>攻击，受害者必须依次完成两个步骤：<br>​<br>    登录受信任网站A，并在本地生成Cookie。</p>
-<pre><code>在不登出A的情况下，访问危险网站B。
-</code></pre><blockquote>
-<p>CSRF的防御</p>
-</blockquote>
-<ul>
-<li><p>服务端的<code>CSRF</code>方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</p>
-<ul>
-<li>通过验证码的方法</li>
-</ul>
-</li>
-</ul>
-
+                <h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="//冒泡排序"></a>//冒泡排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function bulluesort(arr)&#123;</div><div class="line">	var len, i, j, len2, tmp;</div><div class="line">	for(var i = 0, len = arr.length; i &lt; len; i++ )&#123;</div><div class="line">		for(var j = 0 , len2 = len - 1- i ; j &lt; len2; j++)&#123;</div><div class="line">			if(arr[i] &gt; arr[j+ 1])&#123;</div><div class="line">				tmp = arr[i];</div><div class="line">				arr[i] = arr[j+1];</div><div class="line">				arr[j + 1] = tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function quicksort(arr)&#123;</div><div class="line">	var len = arr.length;</div><div class="line">	if(len &lt;= 1)&#123;return arr&#125;</div><div class="line">	var pivotIndex = Math.floor(len/2),</div><div class="line">		pivot = arr.splice(pivotIndex,1)[0],</div><div class="line">		left = [],</div><div class="line">		right = [];</div><div class="line">	len -- ;</div><div class="line">	for(var i = 0; i&lt; len ; i++)&#123;</div><div class="line">		if(arr[i] &lt;= pivot)&#123;</div><div class="line">			left.push(arr[i]);</div><div class="line">		&#125;else&#123;</div><div class="line">			right.push(arr[i]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return quicksort(left).concat(pivot,quicksort(right));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function chooseSort(arr)&#123;</div><div class="line">	var len = arr.length, minIndex, i, j, tmp;</div><div class="line">	for(i = 0; i &lt; len - 1; i++)&#123;</div><div class="line">		minIndex = i;</div><div class="line">		for(j=i + 1; j &lt; len; j++)&#123;</div><div class="line">			if(arr[minIndex]&gt;arr[j])&#123;</div><div class="line">				minIndex = j;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		if(i != minIndex)&#123;</div><div class="line">			tmp = arr[i];</div><div class="line">			arr[i] = arr[minIndex];</div><div class="line">			arr[minIndex] = tmp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
                 <hr>
                 
 
@@ -236,8 +198,8 @@
                     
                     
                     <li class="next">
-                        <a href="/2017/04/29/【前端面试专栏】【07】框架/" data-toggle="tooltip" data-placement="top"
-                           title="[前端面试专栏][07]框架">Next Post &rarr;</a>
+                        <a href="/2017/04/28/【前端面试专栏】【11】面筋/" data-toggle="tooltip" data-placement="top"
+                           title="[前端面试专栏][11]面筋">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -250,7 +212,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#加密解密"><span class="toc-text">加密解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编解码"><span class="toc-text">编解码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见web安全及防护原理"><span class="toc-text">常见web安全及防护原理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序"><span class="toc-text">//冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排序"><span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择排序"><span class="toc-text">选择排序</span></a></li></ol>
                 </div>
             </div>
         </div>

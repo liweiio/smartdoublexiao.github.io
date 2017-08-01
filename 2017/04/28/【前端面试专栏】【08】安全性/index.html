@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        [前端面试专栏][04]闭包与作用域｜WuXiaoxiao&#39;s blog
+        [前端面试专栏][08]安全性｜WuXiaoxiao&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://xxwu.tech/2017/04/29/【前端面试专栏】【04】闭包与作用域/">
+    <link rel="canonical" href="http://xxwu.tech/2017/04/28/【前端面试专栏】【08】安全性/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -152,12 +152,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>[前端面试专栏][04]闭包与作用域</h1>
+                    <h1>[前端面试专栏][08]安全性</h1>
                     
                     <span class="meta">
                          作者 WuXiaoxiao
                         <span>
-                          日期 2017-04-29
+                          日期 2017-04-28
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -172,7 +172,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            [前端面试专栏][04]闭包与作用域
+            [前端面试专栏][08]安全性
         </span>
     </div>
 </header>
@@ -183,44 +183,46 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h2 id="闭包原理及应用"><a href="#闭包原理及应用" class="headerlink" title="闭包原理及应用"></a>闭包原理及应用</h2><ul>
-<li>什么情况下会发生闭包，为什么需要闭包，什么场景下需要，闭包闭了谁，怎么释放被闭包的变量内存，闭包的优点是什么，缺点是什么等等。<ul>
-<li>答：当一个函数有权访问另一个函数作用域的变量时就发生了闭包，创建闭包常见方式是在一个函数内部创建另一个函数，闭包会将包含函数的活动对象添加到它的作用域链中，当包含函数返回后，其执行环境的作用域链被销毁但是它的活动对象仍保留在内存中，直到闭包被销毁。</li>
-<li>释放闭包的变量内存：1.将对闭包的引用赋值为null，接触引用；2.将element的副本保存在一个变量中消除循环引用，并且将element变量设置为null。</li>
-<li>闭包的优点：一个是可以读取函数内部的变量，从而实现如特权方法等应用；另一个就是让这些变量的值始终保持在内存中。</li>
-<li>缺点是：1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</li>
+                <h2 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h2><h2 id="编解码"><a href="#编解码" class="headerlink" title="编解码"></a>编解码</h2><h2 id="常见web安全及防护原理"><a href="#常见web安全及防护原理" class="headerlink" title="常见web安全及防护原理"></a>常见web安全及防护原理</h2><blockquote>
+<p>sql注入原理</p>
+</blockquote>
+<p>就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
+<p>总的来说有以下几点：<br>​<br>    1.永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双”-“进行转换等。</p>
+<pre><code>2.永远不要使用动态拼装SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取。
+
+3.永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。
+
+4.不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。
+</code></pre><blockquote>
+<p>XSS原理及防范</p>
+</blockquote>
+<p>Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 <code>html</code>标签或者<code>javascript</code>代码。比如：攻击者在论坛中放一个</p>
+<p>看似安全的链接，骗取用户点击后，窃取<code>cookie</code>中的用户私密信息；或者攻击者在论坛中加一个恶意表单，</p>
+<p>当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。</p>
+<blockquote>
+<p>XSS防范方法</p>
+</blockquote>
+<p>首先代码里对用户输入的地方和变量都需要仔细检查长度和对<code>”&lt;”,”&gt;”,”;”,”’”</code>等字符做过滤；其次任何内容写到页面之前都必须加以<code>encode</code>，避免不小心把<code>html tag</code> 弄出来。这一个层面做好，至少可以堵住超过一半的<code>XSS</code> 攻击。</p>
+<p>首先，避免直接在<code>cookie</code> 中泄露用户隐私，例如email、密码等等。</p>
+<p>其次，通过使<code>cookie</code> 和系统<code>ip</code> 绑定来降低<code>cookie</code> 泄露后的危险。这样攻击者得到的<code>cookie</code> 没有实际价值，不可能拿来重放。</p>
+<p>如果网站不需要再浏览器端对<code>cookie</code> 进行操作，可以在<code>Set-Cookie</code> 末尾加上<code>HttpOnly</code> 来防止<code>javascript</code> 代码直接获取<code>cookie</code> 。</p>
+<p>尽量采用<code>POST</code> 而非<code>GET</code> 提交表单</p>
+<blockquote>
+<p>XSS与CSRF有什么区别吗？</p>
+</blockquote>
+<p><code>XSS</code>是获取信息，不需要提前知道其他用户页面的代码和数据包。<code>CSRF</code>是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。</p>
+<p>要完成一次<code>CSRF</code>攻击，受害者必须依次完成两个步骤：<br>​<br>    登录受信任网站A，并在本地生成Cookie。</p>
+<pre><code>在不登出A的情况下，访问危险网站B。
+</code></pre><blockquote>
+<p>CSRF的防御</p>
+</blockquote>
+<ul>
+<li><p>服务端的<code>CSRF</code>方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</p>
+<ul>
+<li>通过验证码的方法</li>
 </ul>
 </li>
-<li><a href="http://www.cnblogs.com/xxcanghai/p/4991870.html" target="_blank" rel="external">大部分人都会做错的经典JS闭包面试题</a></li>
 </ul>
-<h2 id="一、作用域链"><a href="#一、作用域链" class="headerlink" title="一、作用域链"></a>一、作用域链</h2><p>函数在定义的时候创建的,用于寻找使用到的变量的值的一个索引,而他内部的规则是,把函数自身的本地变量放在最前面,把自身的父级函数中的变量放在其次,把再高一级函数中的变量放在更后面,以此类推直至全局对象为止.当函数中需要查询一个变量的值的时候,js解释器会去作用域链去查找,从最前面的本地变量中先找,如果没有找到对应的变量,则到下一级的链上找,一旦找到了变量,则不再继续.如果找到最后也没找到需要的变量,则解释器返回undefined。</p>
-<h2 id="二、内存回收机制"><a href="#二、内存回收机制" class="headerlink" title="二、内存回收机制"></a>二、内存回收机制</h2><p>一个函数在执行开始的时候,会给其中定义的变量划分内存空间保存,以备后面的语句所用,等到函数执行完毕返回了,这些变量就被认为是无用的了.对应的内存空间也就被回收了.下次再执行此函数的时候,所有的变量又回到最初的状态,重新赋值使用.但是如果这个函数内部又嵌套了另一个函数,而这个函数是有可能在外部被调用到的.并且这个内部函数又使用了外部函数的某些变量的话.这种内存回收机制就会出现问题.如果在外部函数返回后,又直接调用了内部函数,那么内部函数就无法读取到他所需要的外部函数中变量的值了.所以js解释器在遇到函数定义的时候,会自动把函数和他可能使用的变量(包括本地变量和父级和祖先级函数的变量(自由变量))一起保存起来.也就是构建一个闭包,这些变量将不会被内存回收器所回收,只有当内部的函数不可能被调用以后(例如被删除了,或者没有了指针),才会销毁这个闭包,而没有任何一个闭包引用的变量才会被下一次内存回收启动时所回收。<strong><em>只要存在调用内部函数的可能，JavaScript就需要保留被引用的函数。而且JavaScript运行时需要跟踪引用这个内部函数的所有变量，直到最后一个变量废弃，JavaScript的垃圾收集器才能释放相应的内存空间</em></strong>。</p>
-<h2 id="三、局部变量-amp-全局变量"><a href="#三、局部变量-amp-全局变量" class="headerlink" title="三、局部变量&amp;全局变量"></a>三、局部变量&amp;全局变量</h2><ul>
-<li>1、全局（global）变量的作用域是全局的，在Javascript中处处有定义；而函数内部声明的变量是局部（local）变量，其作用域是局部性的，只在函数体内部有定义,每次执行该函数时都会创建和破坏该变量。</li>
-<li>2、全局变量作用域中使用变量可以不用var语句，但在声明局部变量是一定要使用var语句，否则会视为对全局变量的引用。</li>
-<li>ECMAScript变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是那些保存在栈内存中的简单数据段，即这种值完全 保存在内存中的一个位置。而引用类型值是指那些保存堆内存中的对象，意思是变量中保存的实际上只是一个指针，这个指针指向内存中的另一个位置，该位置保存对象。<ul>
-<li>5种基本数据类型：Undefined、Null、Boolean、 Number和String。这5种基本数据类型的值在内存中分别占有固定大小的空间，因此可以把它们的值保存在栈内存。</li>
-<li>如果赋给变量的是一个引用类型的值，则必须在堆内存中为这个值分配空间。由于这种值的大小不固定，因此不能把它们保存到栈内存中。但内存地址的大小 是固定的，因此可以将内存地址保存在栈内存中。这样，当查询引用类型的变量时，就可以首先从栈中读取内存地址，然后再“顺藤摸瓜”地找到保存在堆中的值。</li>
-<li>保存在栈内存中的每个值，分别占据着固定大小的空间，可以按照顺序来访问它们。如果栈内存中保存的是一块内存的地址，则这个值就像是一个指向对象在堆内存中位置的指针。保存在堆内存中的数据不是按顺序访问的，因为每个对象所需要的空间并不相等。</li>
-<li>当从一个变量向另一个变量复制引用类型的值时，同样也会将储存在栈中的值复制一份放到为新变量分配的空间中。不同的是，<strong>这个值的副本实际上是一个指针，而这个指针指向存储在堆中的一个对象。复制操作结束后，两个变量实际上将引用同一个对象。</strong>因此，改变其中一个变量，就会影响到另一个变量。</li>
-<li>typeof操作符是确定一个变量是字符串、数值、布尔 值，还是undefined基本数据类型的最佳工具。检测引用类型的值时，ECMAScript提供了<strong>instanceof</strong>操作符。</li>
-</ul>
-</li>
-</ul>
-<h2 id="欺骗词法"><a href="#欺骗词法" class="headerlink" title="欺骗词法"></a>欺骗词法</h2><ul>
-<li>with<ul>
-<li>可以不用重复引用对象本身</li>
-<li>给不存在的属性赋值，会在全局作用域创建此属性（泄露）</li>
-</ul>
-</li>
-<li>eval<ul>
-<li>可以在运行期修改书写期的词法作用域</li>
-</ul>
-</li>
-</ul>
-<h2 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h2><p>1.立即执行函数表达式IIFE:<code>(function foo(){..})();</code></p>
-<p>2.匿名函数表达式<code>setTimeOut(function(){..},1000)</code></p>
-<p>3.行内函数表达式<code>setTimeOut(function timeoutHandler(){..},1000)</code></p>
 
                 <hr>
                 
@@ -228,14 +230,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/04/29/【前端面试专栏】【07】框架/" data-toggle="tooltip" data-placement="top"
-                           title="[前端面试专栏][07]框架">&larr; Previous Post</a>
+                        <a href="/2017/04/28/【前端面试专栏】【05】前端性能优化/" data-toggle="tooltip" data-placement="top"
+                           title="[前端面试专栏][05]前端性能优化">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/04/28/【前端面试专栏】【02】类数组对象转换为数组对象/" data-toggle="tooltip" data-placement="top"
-                           title="[前端面试专栏][02]类数组对象转换为数组对象">Next Post &rarr;</a>
+                        <a href="/2017/04/28/【前端面试专栏】【09】CSS部分/" data-toggle="tooltip" data-placement="top"
+                           title="[前端面试专栏][09]CSS部分">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -248,7 +250,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包原理及应用"><span class="toc-text">闭包原理及应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、作用域链"><span class="toc-text">一、作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、内存回收机制"><span class="toc-text">二、内存回收机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、局部变量-amp-全局变量"><span class="toc-text">三、局部变量&全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#欺骗词法"><span class="toc-text">欺骗词法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数表达式"><span class="toc-text">函数表达式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#加密解密"><span class="toc-text">加密解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编解码"><span class="toc-text">编解码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见web安全及防护原理"><span class="toc-text">常见web安全及防护原理</span></a></li></ol>
                 </div>
             </div>
         </div>
