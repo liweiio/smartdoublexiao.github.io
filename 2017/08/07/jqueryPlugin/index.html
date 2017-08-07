@@ -480,13 +480,9 @@ $(&apos;#fun&apos;).tooltip(&apos;destroy&apos;);
 <li>在单个插件中，不要让一个以上的名称空间搞乱了 jQuery.fn 对象。</li>
 <li>总是为方法、事件和数据定义名称空间。</li>
 </ul>
-<h2 id="一个监控多次点击事件的jQuery插件"><a href="#一个监控多次点击事件的jQuery插件" class="headerlink" title="一个监控多次点击事件的jQuery插件"></a>一个监控多次点击事件的jQuery插件</h2><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
-<li>第一步引入本插件的<a href="https://github.com/SmartDoubleXiao/multipleClick/blob/master/mclick.js" target="_blank" rel="external">js文件</a>,需要和jQuery一起引用。</li>
-</ol>
+<h2 id="一个监控多次点击事件的jQuery插件"><a href="#一个监控多次点击事件的jQuery插件" class="headerlink" title="一个监控多次点击事件的jQuery插件"></a>一个监控多次点击事件的jQuery插件</h2><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>1.第一步引入本插件的<a href="https://github.com/SmartDoubleXiao/multipleClick/blob/master/mclick.js" target="_blank" rel="external">js文件</a>,需要和jQuery一起引用。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;script src=&quot;js/jquery/3.2.1/jquery.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;./mClick.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<ol>
-<li>使用.mClick()调用插件</li>
-</ol>
+<p>2.使用.mClick()调用插件</p>
 <pre><code>$(&apos;.btn&apos;).mClick(800, 3, function(){
     console.log(&apos;被点击了3次&apos;);
 });
