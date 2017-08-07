@@ -480,8 +480,8 @@ $(&apos;#fun&apos;).tooltip(&apos;destroy&apos;);
 <li>在单个插件中，不要让一个以上的名称空间搞乱了 jQuery.fn 对象。</li>
 <li>总是为方法、事件和数据定义名称空间。</li>
 </ul>
-<h1 id="一个监控多次点击事件的jQuery插件"><a href="#一个监控多次点击事件的jQuery插件" class="headerlink" title="一个监控多次点击事件的jQuery插件"></a>一个监控多次点击事件的jQuery插件</h1><h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><pre><code>(function( $ ){
-    $.fn.threeClick = function( timeout, clickTimes, callback ) {  
+<h2 id="一个监控多次点击事件的jQuery插件"><a href="#一个监控多次点击事件的jQuery插件" class="headerlink" title="一个监控多次点击事件的jQuery插件"></a>一个监控多次点击事件的jQuery插件</h2><h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><pre><code>(function( $ ){
+    $.fn.mClick = function( timeout, clickTimes, callback ) {  
 
         return this.each(function() {
 
@@ -530,8 +530,8 @@ $(&apos;#fun&apos;).tooltip(&apos;destroy&apos;);
         });
     };
 })( jQuery );
-</code></pre><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>使用示例：<a href="http://htmlpreview.github.io/?https://github.com/SmartDoubleXiao/multipleClick/blob/master/multipleClick.html" target="_blank" rel="external">multipleClick.html</a></p>
-<pre><code>$(&apos;.btn&apos;).threeClick(800, 3, function(){
+</code></pre><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>使用示例：<a href="http://htmlpreview.github.io/?https://github.com/SmartDoubleXiao/multipleClick/blob/master/multipleClick.html" target="_blank" rel="external">multipleClick.html</a></p>
+<pre><code>$(&apos;.btn&apos;).mClick(800, 3, function(){
     console.log(&apos;被点击了3次&apos;);
 }).css(&apos;color&apos;, &apos;red&apos;);
 </code></pre>
@@ -556,7 +556,7 @@ $(&apos;#fun&apos;).tooltip(&apos;destroy&apos;);
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#译自-jQuery-Plugins-Authoring"><span class="toc-text">译自 jQuery Plugins / Authoring</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始"><span class="toc-text">开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上下文"><span class="toc-text">上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础"><span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保持-chainability"><span class="toc-text">保持 chainability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认设置和选项"><span class="toc-text">默认设置和选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#名称空间"><span class="toc-text">名称空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件方法"><span class="toc-text">插件方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据"><span class="toc-text">数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结及最佳实践"><span class="toc-text">总结及最佳实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一个监控多次点击事件的jQuery插件"><span class="toc-text">一个监控多次点击事件的jQuery插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#源代码"><span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用方法"><span class="toc-text">使用方法</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#译自-jQuery-Plugins-Authoring"><span class="toc-text">译自 jQuery Plugins / Authoring</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始"><span class="toc-text">开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上下文"><span class="toc-text">上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础"><span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保持-chainability"><span class="toc-text">保持 chainability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认设置和选项"><span class="toc-text">默认设置和选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#名称空间"><span class="toc-text">名称空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件方法"><span class="toc-text">插件方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据"><span class="toc-text">数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结及最佳实践"><span class="toc-text">总结及最佳实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个监控多次点击事件的jQuery插件"><span class="toc-text">一个监控多次点击事件的jQuery插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#源代码"><span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-text">使用方法</span></a>
                 </div>
             </div>
         </div>
